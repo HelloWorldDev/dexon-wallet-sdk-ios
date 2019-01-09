@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DekuSanSDK_Example' do
+  pod 'DekuSanSDK', :path => '../'
+
+  target 'DekuSanSDK_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
