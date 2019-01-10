@@ -20,10 +20,6 @@ it, simply add the following line to your Podfile:
 pod 'DekuSanSDK'
 ```
 
-## Author
-
-scottphc, scott.ph.chou@gmail.com
-
 ## License
 
 DekuSanSDK is available under the MIT license. See the LICENSE file for more info.
