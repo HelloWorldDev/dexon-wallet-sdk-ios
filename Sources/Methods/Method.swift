@@ -12,16 +12,14 @@ public protocol Method {
 
     /// Handles a callback URL
     func handleCallback(url: URL) -> Bool
-}
 
-private enum QueryItemName: String {
-    case error
+    init?(components: URLComponents)
 }
 
 public extension Method {
 
     public func handleErrorCallback(components: URLComponents) -> WalletSDKError? {
-        if let value = components.queryItems?.first(where: { $0.name == QueryItemName.error.rawValue })?.value,
+        if let value = components.valueOfQueryItem(name: GeneralQueryItemName.error.rawValue),
             let errorCode = Int(value),
             let error = WalletSDKError(rawValue: errorCode) {
             return error

@@ -5,17 +5,21 @@ import Result
 
 public class SignMessageMethod: Method {
 
+    public class var name: String {
+        return "sign-message"
+    }
+
     /// return signature or error
     public typealias Completion = (Result<String, WalletSDKError>) -> Void
 
-    private enum QueryItemName: String {
+    public enum QueryItemName: String {
         case message
         case from
         case signature
     }
 
     public var name: String {
-        return "sign-message"
+        return type(of: self).name
     }
 
     /// Message data
@@ -25,12 +29,24 @@ public class SignMessageMethod: Method {
     public var fromAddress: String?
 
     /// callback from wallet app
-    public var completion: Completion
+    public var completion: Completion?
 
     public init(message: Data, fromAddress: String? = nil, completion: @escaping Completion) {
         self.message = message
         self.fromAddress = fromAddress
         self.completion = completion
+    }
+
+    required public init?(components: URLComponents) {
+        guard let message = components.valueOfQueryItem(name: QueryItemName.message.rawValue).flatMap({ Data(base64Encoded: $0) }) else {
+            return nil
+        }
+
+        if let fromAddress = components.valueOfQueryItem(name: QueryItemName.from.rawValue) {
+            self.fromAddress = fromAddress
+        }
+
+        self.message = message
     }
 
     public func requestURL(scheme: String, queryItems items: [URLQueryItem] = []) -> URL {
@@ -54,15 +70,17 @@ public class SignMessageMethod: Method {
         }
 
         if let error = handleErrorCallback(components: components) {
-            completion(.failure(error))
+            completion?(.failure(error))
             return false
         }
 
-        guard let signature = components.valueOfQueryItem(name: QueryItemName.signature.rawValue) else {
+        guard let signatureBase64 = components.valueOfQueryItem(name: QueryItemName.signature.rawValue),
+            let signatureData = Data(base64Encoded: signatureBase64) else {
             return false
         }
 
-        completion(.success(signature))
+        let signature = signatureData.hexEncoded
+        completion?(.success(signature))
         return true
     }
 }

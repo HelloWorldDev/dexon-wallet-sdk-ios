@@ -5,7 +5,7 @@ import Result
 
 public class SignPersonalMessageMethod: SignMessageMethod {
 
-    override public var name: String {
+    override public class var name: String {
         return "sign-personal-message"
     }
 }

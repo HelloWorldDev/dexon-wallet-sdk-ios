@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-  s.name             = 'DekuSanSDK'
+  s.name             = 'DekuSanWalletSDK'
   s.version          = '0.1.0'
-  s.summary          = 'DekuSan SDK for iOS'
+  s.summary          = 'DekuSan Wallet SDK for DekuSan App'
 
   s.homepage         = 'https://dexon.org/'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -13,7 +13,6 @@ Pod::Spec.new do |s|
   s.swift_version = '4.2'
 
   s.source_files = 'Sources/**/*.{swift}'
-  s.exclude_files = 'Sources/DekuSanWallet.swift'
 
   s.dependency 'Result'
   s.dependency 'BigInt'

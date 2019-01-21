@@ -6,10 +6,14 @@ import BigInt
 
 public class SendTransactionMethod: Method {
 
+    public class var name: String {
+        return "send-transaction"
+    }
+
     /// return transaction hash or error
     public typealias Completion = (Result<String, WalletSDKError>) -> Void
 
-    private enum QueryItemName: String {
+    public enum QueryItemName: String {
         case from
         case to
         case amount
@@ -21,7 +25,7 @@ public class SendTransactionMethod: Method {
     }
 
     public var name: String {
-        return "send-transaction"
+        return type(of: self).name
     }
 
     /// Optional address for signing
@@ -46,7 +50,7 @@ public class SendTransactionMethod: Method {
     public var data: Data?
 
     /// callback from wallet app
-    public var completion: Completion
+    public var completion: Completion?
 
     public init(
         fromAddress: String? = nil,
@@ -66,6 +70,35 @@ public class SendTransactionMethod: Method {
         self.nonce = nonce
         self.data = data
         self.completion = completion
+    }
+
+    required public init?(components: URLComponents) {
+        guard let toAddress = components.valueOfQueryItem(name: QueryItemName.to.rawValue) else {
+            return nil
+        }
+        guard let amountText = components.valueOfQueryItem(name: QueryItemName.amount.rawValue),
+            let amount = BigInt(amountText) else {
+                return nil
+        }
+        self.fromAddress = components.valueOfQueryItem(name: QueryItemName.from.rawValue)
+        self.toAddress = toAddress
+        self.amount = amount
+        if let gasPriceText = components.valueOfQueryItem(name: QueryItemName.gasPrice.rawValue),
+            let gasPrice = BigInt(gasPriceText) {
+            self.gasPrice = gasPrice
+        }
+        if let gasLimitText = components.valueOfQueryItem(name: QueryItemName.gasLimit.rawValue),
+            let gasLimit = UInt64(gasLimitText) {
+            self.gasLimit = gasLimit
+        }
+        if let nonceText = components.valueOfQueryItem(name: QueryItemName.nonce.rawValue),
+            let nonce = UInt64(nonceText) {
+            self.nonce = nonce
+        }
+        if let dataText = components.valueOfQueryItem(name: QueryItemName.data.rawValue),
+            let data = Data(base64Encoded: dataText) {
+            self.data = data
+        }
     }
 
     public func requestURL(scheme: String, queryItems items: [URLQueryItem]) -> URL {
@@ -89,7 +122,7 @@ public class SendTransactionMethod: Method {
             queryItems.append(URLQueryItem(name: QueryItemName.nonce.rawValue, value: nonce.description))
         }
         if let data = data {
-            queryItems.append(URLQueryItem(name: QueryItemName.data.rawValue, value: data.description))
+            queryItems.append(URLQueryItem(name: QueryItemName.data.rawValue, value: data.base64EncodedString()))
         }
         components.queryItems = queryItems
 
@@ -102,7 +135,7 @@ public class SendTransactionMethod: Method {
         }
 
         if let error = handleErrorCallback(components: components) {
-            completion(.failure(error))
+            completion?(.failure(error))
             return false
         }
 
@@ -110,7 +143,32 @@ public class SendTransactionMethod: Method {
             return false
         }
 
-        completion(.success(transactionHash))
+        completion?(.success(transactionHash))
         return true
+    }
+}
+
+public extension DekuSanSDK {
+
+    public func sendTransaction(
+        fromAddress: String? = nil,
+        toAddress: String,
+        amount: BigInt,
+        gasPrice: BigInt? = nil,
+        gasLimit: UInt64? = nil,
+        nonce: UInt64? = nil,
+        data: Data? = nil,
+        completion: @escaping SendTransactionMethod.Completion
+    ) {
+        let method = SendTransactionMethod(
+            fromAddress: fromAddress,
+            toAddress: toAddress,
+            amount: amount,
+            gasPrice: gasPrice,
+            gasLimit: gasLimit,
+            nonce: nonce,
+            data: data,
+            completion: completion)
+        run(method: method)
     }
 }

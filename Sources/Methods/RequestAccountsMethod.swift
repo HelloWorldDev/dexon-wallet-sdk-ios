@@ -5,22 +5,29 @@ import Result
 
 public final class RequestAccountsMethod: Method {
 
+    public class var name: String {
+        return "request-accounts"
+    }
+
     /// return address or error
     public typealias Completion = (Result<String, WalletSDKError>) -> Void
 
-    private enum QueryItemName: String {
+    public enum QueryItemName: String {
         case address
     }
 
     public var name: String {
-        return "request-accounts"
+        return type(of: self).name
     }
 
     /// callback from wallet app
-    public var completion: Completion
+    public var completion: Completion?
 
     public init(completion: @escaping Completion) {
         self.completion = completion
+    }
+
+    required public init?(components: URLComponents) {
     }
 
     public func requestURL(scheme: String, queryItems items: [URLQueryItem] = []) -> URL {
@@ -38,15 +45,17 @@ public final class RequestAccountsMethod: Method {
         }
 
         if let error = handleErrorCallback(components: components) {
-            completion(.failure(error))
+            completion?(.failure(error))
             return false
         }
 
-        guard let address = components.valueOfQueryItem(name: QueryItemName.address.rawValue) else {
+        guard let addressBase64 = components.valueOfQueryItem(name: QueryItemName.address.rawValue),
+            let addressData = Data(base64Encoded: addressBase64) else {
             return false
         }
 
-        completion(.success(address))
+        let address = addressData.hexEncoded
+        completion?(.success(address))
         return true
     }
 }
