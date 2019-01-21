@@ -11,15 +11,20 @@ public final class DekuSanSDK {
         return UIApplication.shared.canOpenURL(URL(string: "\(walletScheme)://")!)
     }
 
+    /// The dapp name sent to DekuSan Wallet app
+    public let name: String
+
     /// The callback URL scheme.
     public let callbackScheme: String
 
+    /// blockchain type
     public let blockchain: Blockchain
 
     /// The dictionary for mapping id to method
     private var runningMethods = [String: Method]()
 
-    public init(callbackScheme: String, blockchain: Blockchain) {
+    public init(name: String, callbackScheme: String, blockchain: Blockchain) {
+        self.name = name
         self.callbackScheme = callbackScheme
         self.blockchain = blockchain
     }
@@ -28,7 +33,8 @@ public final class DekuSanSDK {
         let id = Int.random(in: 0 ... 10000000).description
         let items = [URLQueryItem(name: GeneralQueryItemName.id.rawValue, value: id),
                      URLQueryItem(name: GeneralQueryItemName.blockchain.rawValue, value: blockchain.rawValue),
-                     URLQueryItem(name: GeneralQueryItemName.callback.rawValue, value: callbackScheme)]
+                     URLQueryItem(name: GeneralQueryItemName.callback.rawValue, value: callbackScheme),
+                     URLQueryItem(name: GeneralQueryItemName.name.rawValue, value: name)]
 
         let url = method.requestURL(scheme: DekuSanSDK.walletScheme, queryItems: items)
         runningMethods[id] = method

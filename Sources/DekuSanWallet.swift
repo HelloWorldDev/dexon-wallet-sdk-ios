@@ -22,8 +22,17 @@ public final class DekuSanWallet {
         }
 
         let id = components.valueOfQueryItem(name: GeneralQueryItemName.id.rawValue)
+        let name: String
         let callback = components.valueOfQueryItem(name: GeneralQueryItemName.callback.rawValue)
         let blockchain: Blockchain
+
+        if let nameText = components.valueOfQueryItem(name: GeneralQueryItemName.name.rawValue) {
+            name = nameText
+        } else {
+            handle(callback: callback, id: id, error: WalletSDKError.invalidRequest)
+            return true
+        }
+
         if let blockchainText = components.valueOfQueryItem(name: GeneralQueryItemName.blockchain.rawValue),
             let chain = Blockchain(rawValue: blockchainText) {
             blockchain = chain
@@ -35,7 +44,7 @@ public final class DekuSanWallet {
         switch url.host {
         case RequestAccountsMethod.name:
             if let method = RequestAccountsMethod(components: components) {
-                delegate?.requestAccounts(method: method, blockchain: blockchain, completion: { [weak self] (result) in
+                delegate?.requestAccounts(method: method, name: name, blockchain: blockchain, completion: { [weak self] (result) in
                     switch result {
                     case .success(let address):
                         self?.handle(callback: callback, id: id, address: address)
@@ -50,7 +59,7 @@ public final class DekuSanWallet {
 
         case SignMessageMethod.name:
             if let method = SignMessageMethod(components: components) {
-                delegate?.signMessage(method, blockchain: blockchain, completion: { [weak self] (result) in
+                delegate?.signMessage(method, name: name, blockchain: blockchain, completion: { [weak self] (result) in
                     switch result {
                     case .success(let signature):
                         self?.handle(callback: callback, id: id, messageSignature: signature)
@@ -65,7 +74,7 @@ public final class DekuSanWallet {
 
         case SignPersonalMessageMethod.name:
             if let method = SignPersonalMessageMethod(components: components) {
-                delegate?.signPersonalMessage(method, blockchain: blockchain, completion: { [weak self] (result) in
+                delegate?.signPersonalMessage(method, name: name, blockchain: blockchain, completion: { [weak self] (result) in
                     switch result {
                     case .success(let signature):
                         self?.handle(callback: callback, id: id, messageSignature: signature)
@@ -80,7 +89,7 @@ public final class DekuSanWallet {
 
         case SignTypedMessageMethod.name:
             if let method = SignTypedMessageMethod(components: components) {
-                delegate?.signTypeMessage(method, blockchain: blockchain, completion: { [weak self] (result) in
+                delegate?.signTypeMessage(method, name: name, blockchain: blockchain, completion: { [weak self] (result) in
                     switch result {
                     case .success(let signature):
                         self?.handle(callback: callback, id: id, messageSignature: signature)
@@ -95,7 +104,7 @@ public final class DekuSanWallet {
 
         case SendTransactionMethod.name:
             if let method = SendTransactionMethod(components: components) {
-                delegate?.sendTransaction(method, blockchain: blockchain, completion: { [weak self] (result) in
+                delegate?.sendTransaction(method, name: name, blockchain: blockchain, completion: { [weak self] (result) in
                     switch result {
                     case .success(let signature):
                         self?.handle(callback: callback, id: id, messageSignature: signature)
@@ -148,37 +157,48 @@ public final class DekuSanWallet {
 /// Wallets should implement this delegate to handle requests
 public protocol DekuSanWalletDelegate: AnyObject {
 
-    func requestAccounts(method: RequestAccountsMethod, blockchain: Blockchain, completion: @escaping (Result<Data, WalletSDKError>) -> Void)
+    /// Signs a message with the specified address
+    ///
+    /// - Parameters:
+    ///   - method: request accounts method
+    ///   - name: dapp name
+    ///   - blockchain: specific blockchain
+    ///   - completion: completing closure to call with the address or error
+    func requestAccounts(method: RequestAccountsMethod, name: String, blockchain: Blockchain, completion: @escaping (Result<Data, WalletSDKError>) -> Void)
 
     /// Signs a message with the specified address
     ///
     /// - Parameters:
     ///   - method: sign message method, including message data
+    ///   - name: dapp name
     ///   - blockchain: specific blockchain
     ///   - completion: completing closure to call with the signature or error
-    func signMessage(_ method: SignMessageMethod, blockchain: Blockchain, completion: @escaping (Result<Data, WalletSDKError>) -> Void)
+    func signMessage(_ method: SignMessageMethod, name: String, blockchain: Blockchain, completion: @escaping (Result<Data, WalletSDKError>) -> Void)
 
     /// Signs a personal message with the specified address
     ///
     /// - Parameters:
     ///   - method: sign message method, including personal message data
+    ///   - name: dapp name
     ///   - blockchain: specific blockchain
     ///   - completion: completing closure to call with the signature or error
-    func signPersonalMessage(_ method: SignPersonalMessageMethod, blockchain: Blockchain, completion: @escaping (Result<Data, WalletSDKError>) -> Void)
+    func signPersonalMessage(_ method: SignPersonalMessageMethod, name: String, blockchain: Blockchain, completion: @escaping (Result<Data, WalletSDKError>) -> Void)
 
     /// Signs a typed message with the specified address
     ///
     /// - Parameters:
     ///   - method: sign message method, including typed message data
+    ///   - name: dapp name
     ///   - blockchain: specific blockchain
     ///   - completion: completing closure to call with the signature or error
-    func signTypeMessage(_ method: SignTypedMessageMethod, blockchain: Blockchain, completion: @escaping (Result<Data, WalletSDKError>) -> Void)
+    func signTypeMessage(_ method: SignTypedMessageMethod, name: String, blockchain: Blockchain, completion: @escaping (Result<Data, WalletSDKError>) -> Void)
 
     /// Signs a transaction
     ///
     /// - Parameters:
     ///   - method: send transaction method, including transaction properties
+    ///   - name: dapp name
     ///   - blockchain: specific blockchain
     ///   - completion: completing closure to call with the tx or error
-    func sendTransaction(_ method: SendTransactionMethod, blockchain: Blockchain, completion: @escaping (Result<Data, WalletSDKError>) -> Void)
+    func sendTransaction(_ method: SendTransactionMethod, name: String, blockchain: Blockchain, completion: @escaping (Result<Data, WalletSDKError>) -> Void)
 }

@@ -8,7 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let dekuSanWallet = DekuSanSDK(callbackScheme: "example-dekusan", blockchain: .ethereum)
+    let dekuSanWallet = DekuSanSDK(name: "Example", callbackScheme: "example-dekusan", blockchain: .ethereum)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         /// Handle wallet results
