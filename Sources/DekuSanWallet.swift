@@ -106,8 +106,8 @@ public final class DekuSanWallet {
             if let method = SendTransactionMethod(components: components) {
                 delegate?.sendTransaction(method, name: name, blockchain: blockchain, completion: { [weak self] (result) in
                     switch result {
-                    case .success(let signature):
-                        self?.handle(callback: callback, id: id, messageSignature: signature)
+                    case .success(let transactionHash):
+                        self?.handle(callback: callback, id: id, transactionHash: transactionHash)
                     case .failure(let error):
                         self?.handle(callback: callback, id: id, error: error)
                     }
