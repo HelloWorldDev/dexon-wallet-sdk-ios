@@ -3,6 +3,9 @@ use_frameworks!
 
 target 'DekuSanSDK_Example' do
   pod 'DekuSanSDK', :path => '../'
+  pod 'SnapKit'
+  pod 'AloeStackView'
+  pod 'CryptoSwift'
 
   target 'DekuSanSDK_Tests' do
     inherit! :search_paths    

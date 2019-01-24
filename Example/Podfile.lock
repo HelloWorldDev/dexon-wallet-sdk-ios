@@ -1,31 +1,43 @@
 PODS:
+  - AloeStackView (1.0.1)
   - BigInt (3.1.0):
     - SipHash (~> 1.2)
+  - CryptoSwift (0.13.1)
   - DekuSanSDK (0.1.0):
     - BigInt
     - Result
   - Result (4.1.0)
   - SipHash (1.2.2)
+  - SnapKit (4.2.0)
 
 DEPENDENCIES:
+  - AloeStackView
+  - CryptoSwift
   - DekuSanSDK (from `../`)
+  - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AloeStackView
     - BigInt
+    - CryptoSwift
     - Result
     - SipHash
+    - SnapKit
 
 EXTERNAL SOURCES:
   DekuSanSDK:
     :path: "../"
 
 SPEC CHECKSUMS:
+  AloeStackView: d22c006da4510db5e220968234174654b5ed6ea5
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
+  CryptoSwift: ff68c35a53e03177d31aaa2c1e8b3e010aeed6cb
   DekuSanSDK: bc3b67a75d0c34472f260cfa4722822665771654
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 883ef8faf4c78b316cc96aa99de79c82fcfbb192
+PODFILE CHECKSUM: 61417fa8b027e0f61c59726150a58080e27914a3
 
 COCOAPODS: 1.5.3

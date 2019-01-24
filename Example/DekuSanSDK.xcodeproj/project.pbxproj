@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		490BF1FFE657BEAB43FEAE1A /* Pods_DekuSanSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8701F75E55DC0A2188DD7 /* Pods_DekuSanSDK_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		82D0CC3A28E7A01D79D3248C /* Pods_DekuSanSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046B0673BED73566413B47C2 /* Pods_DekuSanSDK_Tests.framework */; };
+		D8C8FCD121F9834F00E9E625 /* MethodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCD021F9834F00E9E625 /* MethodListViewController.swift */; };
+		D8C8FCD321F98AC900E9E625 /* RequestAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCD221F98AC900E9E625 /* RequestAccountsViewController.swift */; };
+		D8C8FCDB21F98F3300E9E625 /* SignMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCDA21F98F3300E9E625 /* SignMessageViewController.swift */; };
+		D8C8FCDD21F99EED00E9E625 /* SignPersonalMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCDC21F99EED00E9E625 /* SignPersonalMessageViewController.swift */; };
+		D8C8FCDF21F99F8D00E9E625 /* SignTypedMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCDE21F99F8D00E9E625 /* SignTypedMessageViewController.swift */; };
+		D8C8FCE121F9A0B100E9E625 /* SendTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCE021F9A0B100E9E625 /* SendTransactionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +41,6 @@
 		607FACD01AFB9204008FA782 /* DekuSanSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DekuSanSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -46,6 +50,12 @@
 		8048E49ED6EE39E11B54F6BD /* Pods-DekuSanSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A5431596052DBFF5BB9DD989 /* Pods-DekuSanSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Tests/Pods-DekuSanSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B42FD8CC8F0179A72CBA1AAF /* Pods-DekuSanSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D8C8FCD021F9834F00E9E625 /* MethodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodListViewController.swift; sourceTree = "<group>"; };
+		D8C8FCD221F98AC900E9E625 /* RequestAccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAccountsViewController.swift; sourceTree = "<group>"; };
+		D8C8FCDA21F98F3300E9E625 /* SignMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignMessageViewController.swift; sourceTree = "<group>"; };
+		D8C8FCDC21F99EED00E9E625 /* SignPersonalMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignPersonalMessageViewController.swift; sourceTree = "<group>"; };
+		D8C8FCDE21F99F8D00E9E625 /* SignTypedMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTypedMessageViewController.swift; sourceTree = "<group>"; };
+		D8C8FCE021F9A0B100E9E625 /* SendTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTransactionViewController.swift; sourceTree = "<group>"; };
 		FF64E93E51AB9B5274834407 /* Pods-DekuSanSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Tests/Pods-DekuSanSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				D8C8FCD021F9834F00E9E625 /* MethodListViewController.swift */,
+				D8C8FCD921F98B0900E9E625 /* MethodViewControllers */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -146,6 +157,18 @@
 				046B0673BED73566413B47C2 /* Pods_DekuSanSDK_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8C8FCD921F98B0900E9E625 /* MethodViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8C8FCD221F98AC900E9E625 /* RequestAccountsViewController.swift */,
+				D8C8FCDA21F98F3300E9E625 /* SignMessageViewController.swift */,
+				D8C8FCDC21F99EED00E9E625 /* SignPersonalMessageViewController.swift */,
+				D8C8FCDE21F99F8D00E9E625 /* SignTypedMessageViewController.swift */,
+				D8C8FCE021F9A0B100E9E625 /* SendTransactionViewController.swift */,
+			);
+			path = MethodViewControllers;
 			sourceTree = "<group>";
 		};
 		EB337BD71B3D7B79347BC08F /* Pods */ = {
@@ -207,7 +230,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
@@ -314,19 +337,25 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AloeStackView/AloeStackView.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DekuSanSDK/DekuSanSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AloeStackView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DekuSanSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -340,8 +369,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				D8C8FCD321F98AC900E9E625 /* RequestAccountsViewController.swift in Sources */,
+				D8C8FCD121F9834F00E9E625 /* MethodListViewController.swift in Sources */,
+				D8C8FCDB21F98F3300E9E625 /* SignMessageViewController.swift in Sources */,
+				D8C8FCE121F9A0B100E9E625 /* SendTransactionViewController.swift in Sources */,
+				D8C8FCDF21F99F8D00E9E625 /* SignTypedMessageViewController.swift in Sources */,
+				D8C8FCDD21F99EED00E9E625 /* SignPersonalMessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,12 +429,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -448,12 +484,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -493,7 +531,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -508,7 +546,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -529,7 +567,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DekuSanSDK_Example.app/DekuSanSDK_Example";
 			};
 			name = Debug;
@@ -547,7 +585,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DekuSanSDK_Example.app/DekuSanSDK_Example";
 			};
 			name = Release;
