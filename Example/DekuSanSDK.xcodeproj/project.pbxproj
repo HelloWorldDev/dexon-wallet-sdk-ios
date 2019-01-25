@@ -12,7 +12,6 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		82D0CC3A28E7A01D79D3248C /* Pods_DekuSanSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046B0673BED73566413B47C2 /* Pods_DekuSanSDK_Tests.framework */; };
 		D8C8FCD121F9834F00E9E625 /* MethodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCD021F9834F00E9E625 /* MethodListViewController.swift */; };
 		D8C8FCD321F98AC900E9E625 /* RequestAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCD221F98AC900E9E625 /* RequestAccountsViewController.swift */; };
@@ -20,6 +19,12 @@
 		D8C8FCDD21F99EED00E9E625 /* SignPersonalMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCDC21F99EED00E9E625 /* SignPersonalMessageViewController.swift */; };
 		D8C8FCDF21F99F8D00E9E625 /* SignTypedMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCDE21F99F8D00E9E625 /* SignTypedMessageViewController.swift */; };
 		D8C8FCE121F9A0B100E9E625 /* SendTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCE021F9A0B100E9E625 /* SendTransactionViewController.swift */; };
+		D8C8FCE621F9C17400E9E625 /* RequestAccountsMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCE521F9C17400E9E625 /* RequestAccountsMethodTests.swift */; };
+		D8C8FCE921F9CBB400E9E625 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCE721F9CB9400E9E625 /* Extension.swift */; };
+		D8C8FCEB21F9CD0000E9E625 /* SignMessageMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCEA21F9CD0000E9E625 /* SignMessageMethodTests.swift */; };
+		D8C8FCEE21FAB49B00E9E625 /* SignPersonalMessageMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCEC21FAB46600E9E625 /* SignPersonalMessageMethodTests.swift */; };
+		D8C8FCF021FAB4CD00E9E625 /* SignTypedMessageMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCEF21FAB4CD00E9E625 /* SignTypedMessageMethodTests.swift */; };
+		D8C8FCF221FAB59600E9E625 /* SendTransactionMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCF121FAB59600E9E625 /* SendTransactionMethodTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +51,6 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* DekuSanSDK_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DekuSanSDK_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		8048E49ED6EE39E11B54F6BD /* Pods-DekuSanSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A5431596052DBFF5BB9DD989 /* Pods-DekuSanSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Tests/Pods-DekuSanSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B42FD8CC8F0179A72CBA1AAF /* Pods-DekuSanSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -56,6 +60,12 @@
 		D8C8FCDC21F99EED00E9E625 /* SignPersonalMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignPersonalMessageViewController.swift; sourceTree = "<group>"; };
 		D8C8FCDE21F99F8D00E9E625 /* SignTypedMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTypedMessageViewController.swift; sourceTree = "<group>"; };
 		D8C8FCE021F9A0B100E9E625 /* SendTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTransactionViewController.swift; sourceTree = "<group>"; };
+		D8C8FCE521F9C17400E9E625 /* RequestAccountsMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAccountsMethodTests.swift; sourceTree = "<group>"; };
+		D8C8FCE721F9CB9400E9E625 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		D8C8FCEA21F9CD0000E9E625 /* SignMessageMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignMessageMethodTests.swift; sourceTree = "<group>"; };
+		D8C8FCEC21FAB46600E9E625 /* SignPersonalMessageMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignPersonalMessageMethodTests.swift; sourceTree = "<group>"; };
+		D8C8FCEF21FAB4CD00E9E625 /* SignTypedMessageMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTypedMessageMethodTests.swift; sourceTree = "<group>"; };
+		D8C8FCF121FAB59600E9E625 /* SendTransactionMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTransactionMethodTests.swift; sourceTree = "<group>"; };
 		FF64E93E51AB9B5274834407 /* Pods-DekuSanSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Tests/Pods-DekuSanSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,7 +136,12 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				D8C8FCE721F9CB9400E9E625 /* Extension.swift */,
+				D8C8FCE521F9C17400E9E625 /* RequestAccountsMethodTests.swift */,
+				D8C8FCEA21F9CD0000E9E625 /* SignMessageMethodTests.swift */,
+				D8C8FCEC21FAB46600E9E625 /* SignPersonalMessageMethodTests.swift */,
+				D8C8FCEF21FAB4CD00E9E625 /* SignTypedMessageMethodTests.swift */,
+				D8C8FCF121FAB59600E9E625 /* SendTransactionMethodTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -383,7 +398,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				D8C8FCEB21F9CD0000E9E625 /* SignMessageMethodTests.swift in Sources */,
+				D8C8FCEE21FAB49B00E9E625 /* SignPersonalMessageMethodTests.swift in Sources */,
+				D8C8FCE621F9C17400E9E625 /* RequestAccountsMethodTests.swift in Sources */,
+				D8C8FCF021FAB4CD00E9E625 /* SignTypedMessageMethodTests.swift in Sources */,
+				D8C8FCF221FAB59600E9E625 /* SendTransactionMethodTests.swift in Sources */,
+				D8C8FCE921F9CBB400E9E625 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
