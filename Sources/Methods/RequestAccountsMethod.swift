@@ -39,11 +39,7 @@ public final class RequestAccountsMethod: Method {
         return components.url!
     }
 
-    public func handleCallback(url: URL) -> Bool {
-        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
-            return false
-        }
-
+    public func handleCallback(components: URLComponents) -> Bool {
         if let error = handleErrorCallback(components: components) {
             completion?(.failure(error))
             return false
@@ -51,7 +47,8 @@ public final class RequestAccountsMethod: Method {
 
         guard let addressBase64 = components.valueOfQueryItem(name: QueryItemName.address.rawValue),
             let addressData = Data(base64Encoded: addressBase64) else {
-            return false
+                completion?(.failure(WalletSDKError.invalidResponse))
+                return false
         }
 
         let address = addressData.hexEncoded

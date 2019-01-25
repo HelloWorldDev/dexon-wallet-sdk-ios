@@ -129,21 +129,19 @@ public class SendTransactionMethod: Method {
         return components.url!
     }
 
-    public func handleCallback(url: URL) -> Bool {
-        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
-            return false
-        }
-
+    public func handleCallback(components: URLComponents) -> Bool {
         if let error = handleErrorCallback(components: components) {
             completion?(.failure(error))
             return false
         }
 
-        guard let transactionHash = components.valueOfQueryItem(name: QueryItemName.transactionHash.rawValue) else {
+        guard let transactionHash = components.valueOfQueryItem(name: QueryItemName.transactionHash.rawValue),
+            let transactionHashData = Data(base64Encoded: transactionHash) else {
+            completion?(.failure(WalletSDKError.invalidResponse))
             return false
         }
 
-        completion?(.success(transactionHash))
+        completion?(.success(transactionHashData.hexEncoded))
         return true
     }
 }

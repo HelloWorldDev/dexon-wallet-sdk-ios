@@ -64,11 +64,7 @@ public class SignMessageMethod: Method {
         return components.url!
     }
 
-    public func handleCallback(url: URL) -> Bool {
-        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
-            return false
-        }
-
+    public func handleCallback(components: URLComponents) -> Bool {
         if let error = handleErrorCallback(components: components) {
             completion?(.failure(error))
             return false
@@ -76,7 +72,8 @@ public class SignMessageMethod: Method {
 
         guard let signatureBase64 = components.valueOfQueryItem(name: QueryItemName.signature.rawValue),
             let signatureData = Data(base64Encoded: signatureBase64) else {
-            return false
+                completion?(.failure(WalletSDKError.invalidResponse))
+                return false
         }
 
         let signature = signatureData.hexEncoded

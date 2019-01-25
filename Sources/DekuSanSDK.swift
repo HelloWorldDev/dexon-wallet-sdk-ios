@@ -62,6 +62,6 @@ public final class DekuSanSDK {
         }
 
         runningMethods.removeValue(forKey: id)
-        return method.handleCallback(url: url)
+        return method.handleCallback(components: components)
     }
 }

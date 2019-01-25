@@ -10,8 +10,8 @@ public protocol Method {
     /// Wallet request URL
     func requestURL(scheme: String, queryItems items: [URLQueryItem]) -> URL
 
-    /// Handles a callback URL
-    func handleCallback(url: URL) -> Bool
+    /// Handles a callback URL Components
+    func handleCallback(components: URLComponents) -> Bool
 
     init?(components: URLComponents)
 }
