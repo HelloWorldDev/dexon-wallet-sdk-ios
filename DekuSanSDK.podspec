@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://dexon.org/'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'DEXON Foundation' => 'support@dexon.org' }
-  s.source           = { :git => 'https://github.com/dexon-foundation/dekusan-sdk-ios.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/dexon-foundation/dekusan-sdk-ios.git', :tag => "v#{ s.version.to_s }" }
   s.social_media_url = 'https://twitter.com/dexonfoundation'
 
   s.ios.deployment_target = '9.0'
