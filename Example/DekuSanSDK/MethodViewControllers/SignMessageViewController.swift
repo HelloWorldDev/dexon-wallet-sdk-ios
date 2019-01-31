@@ -75,6 +75,7 @@ class SignMessageViewController: UIViewController {
     }
 
     private func setupViews() {
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         view.addSubview(stackView)
         stackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -108,5 +109,10 @@ class SignMessageViewController: UIViewController {
             }
 
         dekuSanWallet.run(method: method)
+    }
+    
+    @objc
+    private func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
