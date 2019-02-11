@@ -1,6 +1,6 @@
 # DekuSanSDK
 
-[![CI Status](https://img.shields.io/travis/dexon-foundation/DekuSanSDK.svg?style=flat)](https://travis-ci.org/dexon-foundation/DekuSanSDK)
+[![CI Status](https://img.shields.io/travis/dexon-foundation/DekuSanSDK.svg?style=flat)](https://travis-ci.org/dexon-foundation/dekusan-sdk-ios)
 [![Version](https://img.shields.io/cocoapods/v/DekuSanSDK.svg?style=flat)](https://cocoapods.org/pods/DekuSanSDK)
 [![License](https://img.shields.io/cocoapods/l/DekuSanSDK.svg?style=flat)](https://cocoapods.org/pods/DekuSanSDK)
 [![Platform](https://img.shields.io/cocoapods/p/DekuSanSDK.svg?style=flat)](https://cocoapods.org/pods/DekuSanSDK)
