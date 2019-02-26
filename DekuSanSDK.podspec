@@ -11,10 +11,13 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
   s.swift_version = '4.2'
+  
+  s.default_subspecs = 'Core'
 
-  s.source_files = 'Sources/**/*.{swift}'
-  s.exclude_files = 'Sources/DekuSanWallet.swift'
+  s.subspec 'Core' do |ss|
+    s.source_files = 'Sources/Core/**/*.{swift}'
 
-  s.dependency 'Result'
-  s.dependency 'BigInt'
+    s.dependency 'Result'
+    s.dependency 'BigInt'
+  end
 end

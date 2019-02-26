@@ -12,3 +12,13 @@ extension Data {
         return "0x" + self.hex
     }
 }
+
+extension String {
+
+    var drop0x: String {
+        if hasPrefix("0x") {
+            return String(dropFirst(2))
+        }
+        return self
+    }
+}

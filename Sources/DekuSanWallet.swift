@@ -137,8 +137,8 @@ public final class DekuSanWallet {
         handle(callback: callback, id: id, queryItems: [item])
     }
 
-    private func handle(callback: String?, id: String?, transactionHash: Data) {
-        let item = URLQueryItem(name: SendTransactionMethod.QueryItemName.transactionHash.rawValue, value: transactionHash.base64EncodedString())
+    private func handle(callback: String?, id: String?, transactionHash: String) {
+        let item = URLQueryItem(name: SendTransactionMethod.QueryItemName.transactionHash.rawValue, value: transactionHash)
         handle(callback: callback, id: id, queryItems: [item])
     }
 
@@ -200,5 +200,5 @@ public protocol DekuSanWalletDelegate: AnyObject {
     ///   - name: dapp name
     ///   - blockchain: specific blockchain
     ///   - completion: completing closure to call with the tx or error
-    func sendTransaction(_ method: SendTransactionMethod, name: String, blockchain: Blockchain, completion: @escaping (Result<Data, WalletSDKError>) -> Void)
+    func sendTransaction(_ method: SendTransactionMethod, name: String, blockchain: Blockchain, completion: @escaping (Result<String, WalletSDKError>) -> Void)
 }

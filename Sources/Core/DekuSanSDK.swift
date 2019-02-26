@@ -38,10 +38,12 @@ public final class DekuSanSDK {
 
         let url = method.requestURL(scheme: DekuSanSDK.walletScheme, queryItems: items)
         runningMethods[id] = method
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url)
-        } else {
-            UIApplication.shared.openURL(url)
+        DispatchQueue.main.safeAsync {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
         }
     }
 
