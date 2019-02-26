@@ -194,7 +194,7 @@ public class DekuSanProvider: Web3Provider {
             }
             
             let gasLimit: UInt64?
-            if let gasPriceHex = parameters.gasPrice {
+            if let gasPriceHex = parameters.gas {
                 gasLimit = UInt64(gasPriceHex.drop0x, radix: 16)
             } else {
                 gasLimit = nil
@@ -233,7 +233,7 @@ public class DekuSanProvider: Web3Provider {
 
 public extension Web3 {
     
-    convenience init?(dexonRpcURL: URL, dekuSanWallet: DekuSanSDK, network: NetworkId? = nil) {
+    public convenience init?(dexonRpcURL: URL, dekuSanWallet: DekuSanSDK, network: NetworkId? = nil) {
         guard let provider = DekuSanProvider(dexonRpcURL, dekuSanWallet: dekuSanWallet, network: network) else { return nil }
         let dispatcher = JsonRpcRequestDispatcher(provider: provider, queue: DispatchQueue.global(qos: .userInteractive), policy: .NoBatching)
         self.init(provider: provider, queue: nil, requestDispatcher: dispatcher)
