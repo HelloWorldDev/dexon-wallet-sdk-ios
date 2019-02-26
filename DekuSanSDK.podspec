@@ -20,4 +20,11 @@ Pod::Spec.new do |s|
     s.dependency 'Result'
     s.dependency 'BigInt'
   end
+  
+  s.subspec 'Web3' do |ss|
+    ss.source_files = 'Sources/Web3/**/*.{swift}'
+
+    ss.dependency 'CryptoSwift'
+    ss.dependency 'web3swift.pod'
+  end
 end
