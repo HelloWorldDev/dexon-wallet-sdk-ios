@@ -5,6 +5,9 @@ import web3swift
 import PromiseKit
 import CryptoSwift
 import BigInt
+#if !COCOAPODS
+import DekuSanSDK
+#endif
 
 /// DekuSan http provider.
 public class DekuSanProvider: Web3Provider {
