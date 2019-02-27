@@ -3,11 +3,15 @@
 import UIKit
 import DekuSanSDK
 import AloeStackView
+import web3swift
 
 class RequestAccountsViewController: UIViewController {
 
     private let dekuSanWallet: DekuSanSDK
-
+    private let callViaWeb3: Bool
+    
+    private var web3: Web3?
+    
     private lazy var stackView: AloeStackView = {
         let stackView = AloeStackView()
         stackView.hidesSeparatorsByDefault = true
@@ -32,8 +36,9 @@ class RequestAccountsViewController: UIViewController {
         return label
     }()
 
-    init(dekuSanWallet: DekuSanSDK) {
+    init(dekuSanWallet: DekuSanSDK, callViaWeb3: Bool = false) {
         self.dekuSanWallet = dekuSanWallet
+        self.callViaWeb3 = callViaWeb3
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -55,6 +60,24 @@ class RequestAccountsViewController: UIViewController {
 
     @objc
     private func requestAccounts() {
+        view.endEditing(true)
+        if callViaWeb3 {
+            callFromWeb3()
+        } else {
+            callFromSDK()
+        }
+    }
+    
+    private func callFromWeb3() {
+        web3 = Web3(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dekuSanWallet: dekuSanWallet, network: .dexonTestnet)!
+        web3?.eth.getAccountsPromise().done { result in
+            self.resultLabel.text = "address: \(result.first ?? "")"
+        }.catch { error in
+            self.resultLabel.text = "error: \(error)"
+        }
+    }
+    
+    private func callFromSDK() {
         let method = RequestAccountsMethod { [weak self] (result) in
             guard let self = self else { return }
             switch result {

@@ -2,28 +2,59 @@ PODS:
   - AloeStackView (1.0.1)
   - BigInt (3.1.0):
     - SipHash (~> 1.2)
-  - CryptoSwift (0.13.1)
-  - DekuSanSDK (0.1.0):
-    - BigInt
-    - Result
-  - Result (4.1.0)
+  - CryptoSwift (0.14.0)
+  - DekuSanSDK (0.2.0):
+    - DekuSanSDK/Core (= 0.2.0)
+  - DekuSanSDK/Core (0.2.0):
+    - BigInt (~> 3.1.0)
+    - Result (~> 4.0.0)
+  - DekuSanSDK/Web3 (0.2.0):
+    - CryptoSwift (~> 0.14.0)
+    - DekuSanSDK/Core (~> 0.2.0)
+    - web3swift.pod (~> 2.1.10)
+  - keccak.c (0.1.3)
+  - PromiseKit (6.8.3):
+    - PromiseKit/CorePromise (= 6.8.3)
+    - PromiseKit/Foundation (= 6.8.3)
+    - PromiseKit/UIKit (= 6.8.3)
+  - PromiseKit/CorePromise (6.8.3)
+  - PromiseKit/Foundation (6.8.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.8.3):
+    - PromiseKit/CorePromise
+  - Result (4.0.1)
+  - scrypt.c (0.1.1)
+  - secp256k1.c (0.1.2)
   - SipHash (1.2.2)
   - SnapKit (4.2.0)
+  - web3swift.pod (2.1.10):
+    - BigInt (~> 3.1)
+    - keccak.c (~> 0.1)
+    - PromiseKit (~> 6.4)
+    - scrypt.c (~> 0.1)
+    - secp256k1.c (~> 0.1)
 
 DEPENDENCIES:
   - AloeStackView
   - CryptoSwift
   - DekuSanSDK (from `../`)
+  - DekuSanSDK/Web3 (from `../`)
   - SnapKit
+  - web3swift.pod
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AloeStackView
     - BigInt
     - CryptoSwift
+    - keccak.c
+    - PromiseKit
     - Result
+    - scrypt.c
+    - secp256k1.c
     - SipHash
     - SnapKit
+    - web3swift.pod
 
 EXTERNAL SOURCES:
   DekuSanSDK:
@@ -32,12 +63,17 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AloeStackView: d22c006da4510db5e220968234174654b5ed6ea5
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
-  CryptoSwift: ff68c35a53e03177d31aaa2c1e8b3e010aeed6cb
-  DekuSanSDK: bc3b67a75d0c34472f260cfa4722822665771654
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
+  DekuSanSDK: 7b7793be830a11bbc69979cbcfdf69e98d1c6859
+  keccak.c: 859583afdaccb4e4fcc0f0096064d101580313f4
+  PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
+  Result: a6e784bebf48b471d59cddc1adb81f41f678c487
+  scrypt.c: b42ae06183251329d2b2c620c226fb541a4a3592
+  secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  web3swift.pod: e3bd1c18a84e9fc1c4bfab8ebc0754b0806a7bcd
 
-PODFILE CHECKSUM: 61417fa8b027e0f61c59726150a58080e27914a3
+PODFILE CHECKSUM: f5cd187b338acfbfece253f34e0359aadc817af5
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

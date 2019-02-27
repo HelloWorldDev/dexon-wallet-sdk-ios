@@ -25,6 +25,7 @@
 		D8C8FCEE21FAB49B00E9E625 /* SignPersonalMessageMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCEC21FAB46600E9E625 /* SignPersonalMessageMethodTests.swift */; };
 		D8C8FCF021FAB4CD00E9E625 /* SignTypedMessageMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCEF21FAB4CD00E9E625 /* SignTypedMessageMethodTests.swift */; };
 		D8C8FCF221FAB59600E9E625 /* SendTransactionMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCF121FAB59600E9E625 /* SendTransactionMethodTests.swift */; };
+		D8CDDA592225233500D97712 /* Web3SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDDA582225233500D97712 /* Web3SampleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		D8C8FCEC21FAB46600E9E625 /* SignPersonalMessageMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignPersonalMessageMethodTests.swift; sourceTree = "<group>"; };
 		D8C8FCEF21FAB4CD00E9E625 /* SignTypedMessageMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTypedMessageMethodTests.swift; sourceTree = "<group>"; };
 		D8C8FCF121FAB59600E9E625 /* SendTransactionMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTransactionMethodTests.swift; sourceTree = "<group>"; };
+		D8CDDA582225233500D97712 /* Web3SampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web3SampleViewController.swift; sourceTree = "<group>"; };
 		FF64E93E51AB9B5274834407 /* Pods-DekuSanSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Tests/Pods-DekuSanSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				D8C8FCD021F9834F00E9E625 /* MethodListViewController.swift */,
 				D8C8FCD921F98B0900E9E625 /* MethodViewControllers */,
+				D8CDDA582225233500D97712 /* Web3SampleViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -351,14 +354,19 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AloeStackView/AloeStackView.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DekuSanSDK/DekuSanSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/keccak.c/keccak.framework",
+				"${BUILT_PRODUCTS_DIR}/scrypt.c/scrypt.framework",
+				"${BUILT_PRODUCTS_DIR}/secp256k1.c/secp256k1.framework",
+				"${BUILT_PRODUCTS_DIR}/web3swift.pod/web3swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -368,13 +376,18 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DekuSanSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/keccak.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/web3swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -387,6 +400,7 @@
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				D8C8FCD321F98AC900E9E625 /* RequestAccountsViewController.swift in Sources */,
 				D8C8FCD121F9834F00E9E625 /* MethodListViewController.swift in Sources */,
+				D8CDDA592225233500D97712 /* Web3SampleViewController.swift in Sources */,
 				D8C8FCDB21F98F3300E9E625 /* SignMessageViewController.swift in Sources */,
 				D8C8FCE121F9A0B100E9E625 /* SendTransactionViewController.swift in Sources */,
 				D8C8FCDF21F99F8D00E9E625 /* SignTypedMessageViewController.swift in Sources */,
