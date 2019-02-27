@@ -7,6 +7,7 @@ import AloeStackView
 class SignMessageViewController: UIViewController {
 
     let dekuSanWallet: DekuSanSDK
+    let callViaWeb3: Bool
 
     var defaultMessage: String {
         return "Any message you wanna sign"
@@ -60,8 +61,9 @@ class SignMessageViewController: UIViewController {
         return label
     }()
 
-    init(dekuSanWallet: DekuSanSDK) {
+    init(dekuSanWallet: DekuSanSDK, callViaWeb3: Bool = false) {
         self.dekuSanWallet = dekuSanWallet
+        self.callViaWeb3 = callViaWeb3
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -84,6 +86,7 @@ class SignMessageViewController: UIViewController {
 
     @objc
     private func sign() {
+        view.endEditing(true)
         guard let message = messageTextView.text else {
             return
         }

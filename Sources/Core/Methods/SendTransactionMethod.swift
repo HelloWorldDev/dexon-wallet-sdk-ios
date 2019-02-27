@@ -135,13 +135,12 @@ public class SendTransactionMethod: Method {
             return false
         }
 
-        guard let transactionHash = components.valueOfQueryItem(name: QueryItemName.transactionHash.rawValue),
-            let transactionHashData = Data(base64Encoded: transactionHash) else {
+        guard let transactionHash = components.valueOfQueryItem(name: QueryItemName.transactionHash.rawValue) else {
             completion?(.failure(WalletSDKError.invalidResponse))
             return false
         }
 
-        completion?(.success(transactionHashData.hexEncoded))
+        completion?(.success(transactionHash))
         return true
     }
 }

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DekuSanSDK'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'DekuSan SDK for iOS'
 
   s.homepage         = 'https://dexon.org/'
@@ -11,10 +11,21 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
   s.swift_version = '4.2'
+  
+  s.default_subspecs = 'Core'
 
-  s.source_files = 'Sources/**/*.{swift}'
-  s.exclude_files = 'Sources/DekuSanWallet.swift'
+  s.subspec 'Core' do |ss|
+    ss.source_files = 'Sources/Core/**/*.{swift}'
 
-  s.dependency 'Result'
-  s.dependency 'BigInt'
+    ss.dependency 'Result', '~> 4.0.0'
+    ss.dependency 'BigInt', '~> 3.1.0'
+  end
+  
+  s.subspec 'Web3' do |ss|
+    ss.source_files = 'Sources/Web3/**/*.{swift}'
+
+    ss.dependency 'DekuSanSDK/Core', '~> 0.2.0'
+    ss.dependency 'CryptoSwift', '~> 0.14.0'
+    ss.dependency 'web3swift.pod', '~> 2.1.10'
+  end
 end

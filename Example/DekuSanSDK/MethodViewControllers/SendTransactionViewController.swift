@@ -5,10 +5,14 @@ import CryptoSwift
 import DekuSanSDK
 import AloeStackView
 import BigInt
+import web3swift
 
 class SendTransactionViewController: UIViewController {
 
     private let dekuSanWallet: DekuSanSDK
+    private let callViaWeb3: Bool
+    
+    private var web3: Web3?
 
     private lazy var stackView: AloeStackView = {
         let stackView = AloeStackView()
@@ -97,8 +101,9 @@ class SendTransactionViewController: UIViewController {
         return label
     }()
 
-    init(dekuSanWallet: DekuSanSDK) {
+    init(dekuSanWallet: DekuSanSDK, callViaWeb3: Bool = false) {
         self.dekuSanWallet = dekuSanWallet
+        self.callViaWeb3 = callViaWeb3
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -121,6 +126,7 @@ class SendTransactionViewController: UIViewController {
 
     @objc
     private func send() {
+        view.endEditing(true)
         guard let toAddress = toTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), toAddress.count > 2 else {
             resultLabel.text = "fill in toAddress"
             return
@@ -156,7 +162,53 @@ class SendTransactionViewController: UIViewController {
         if let text = dataTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
             data = Data(hex: text.drop0x)
         }
-
+        
+        if callViaWeb3 {
+            callFromWeb3(fromAddress: fromAddress, toAddress: toAddress, amount: amount, gasPrice: gasPrice, gasLimit: gasLimit, data: data)
+        } else {
+            callFromSDK(fromAddress: fromAddress, toAddress: toAddress, amount: amount, gasPrice: gasPrice, gasLimit: gasLimit, nonce: nonce, data: data)
+        }
+    }
+    
+    private func callFromWeb3(
+        fromAddress: String?,
+        toAddress: String,
+        amount: BigInt,
+        gasPrice: BigInt?,
+        gasLimit: UInt64?,
+        data: Data?
+    ) {
+        web3 = Web3(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dekuSanWallet: dekuSanWallet, network: .dexonTestnet)!
+        var transaction = EthereumTransaction(to: Address(toAddress), data: data ?? Data(), options: .default)
+        transaction.value = BigUInt(amount)
+        
+        var options = Web3Options()
+        if let fromAddress = fromAddress {
+            options.from = Address(fromAddress)
+        }
+        if let gasPrice = gasPrice {
+            options.gasPrice = BigUInt(gasPrice)
+        }
+        if let gasLimit = gasLimit {
+            options.gasLimit = BigUInt(gasLimit)
+        }
+        
+        web3?.eth.sendTransactionPromise(transaction, options: options).done { [weak self] result in
+            self?.resultLabel.text = "tx: \(result.hash)"
+        }.catch { [weak self] error in
+            self?.resultLabel.text = "error: \(error)"
+        }
+    }
+    
+    private func callFromSDK(
+        fromAddress: String?,
+        toAddress: String,
+        amount: BigInt,
+        gasPrice: BigInt?,
+        gasLimit: UInt64?,
+        nonce: UInt64?,
+        data: Data?
+    ) {
         let method = SendTransactionMethod(
             fromAddress: fromAddress,
             toAddress: toAddress,
@@ -166,8 +218,8 @@ class SendTransactionViewController: UIViewController {
             nonce: nonce,
             data: data) { [weak self] (result) in
                 switch result {
-                case .success(let signature):
-                    self?.resultLabel.text = "tx: \(signature)"
+                case .success(let txHash):
+                    self?.resultLabel.text = "tx: \(txHash)"
                 case .failure(let error):
                     self?.resultLabel.text = "error: \(error)"
                 }
