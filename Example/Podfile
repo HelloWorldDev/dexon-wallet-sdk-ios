@@ -7,7 +7,7 @@ target 'DekuSanSDK_Example' do
   pod 'SnapKit'
   pod 'AloeStackView'
   pod 'CryptoSwift'
-  pod 'web3swift.pod'
+  pod 'web3swift', :git => 'https://github.com/dexon-foundation/web3swift', :branch => 'develop'
 
   target 'DekuSanSDK_Tests' do
     inherit! :search_paths    

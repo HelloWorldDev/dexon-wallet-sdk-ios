@@ -2,11 +2,12 @@
 
 import UIKit
 import DekuSanSDK
-import web3swift
+import Web3swift
+import EthereumAddress
 
 class SignPersonalMessageViewController: SignMessageViewController {
     
-    private var web3: Web3?
+    private var web3: web3?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,9 @@ class SignPersonalMessageViewController: SignMessageViewController {
             self.resultLabel.text = "need to fill the address in"
             return
         }
-        web3 = Web3(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dekuSanWallet: dekuSanWallet, network: .dexonTestnet)!
-        web3?.personal.signPersonalMessagePromise(message: messageData, from: Address(fromAddress)).done { [weak self] signature in
-            self?.resultLabel.text = "signature: 0x\(signature.hex)"
+        web3 = Web3.new(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dekuSanWallet: dekuSanWallet, network: Networks.Custom(networkID: 238))!
+        web3?.personal.signPersonalMessagePromise(message: messageData, from: EthereumAddress(fromAddress)!).done { [weak self] signature in
+            self?.resultLabel.text = "signature: 0x\(signature.toHexString())"
         }.catch { [weak self] error in
             self?.resultLabel.text = "error: \(error)"
         }

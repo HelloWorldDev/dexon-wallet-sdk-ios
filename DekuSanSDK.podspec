@@ -26,6 +26,6 @@ Pod::Spec.new do |s|
 
     ss.dependency 'DekuSanSDK/Core', '~> 0.2.0'
     ss.dependency 'CryptoSwift', '~> 0.14.0'
-    ss.dependency 'web3swift.pod', '~> 2.1.10'
+    ss.dependency 'web3swift', '~> 2.0.0'
   end
 end

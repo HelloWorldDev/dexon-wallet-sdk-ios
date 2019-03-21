@@ -3,14 +3,14 @@
 import UIKit
 import DekuSanSDK
 import AloeStackView
-import web3swift
+import Web3swift
 
 class RequestAccountsViewController: UIViewController {
 
     private let dekuSanWallet: DekuSanSDK
     private let callViaWeb3: Bool
     
-    private var web3: Web3?
+    private var web3: web3?
     
     private lazy var stackView: AloeStackView = {
         let stackView = AloeStackView()
@@ -69,9 +69,11 @@ class RequestAccountsViewController: UIViewController {
     }
     
     private func callFromWeb3() {
-        web3 = Web3(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dekuSanWallet: dekuSanWallet, network: .dexonTestnet)!
+        web3 = Web3.new(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dekuSanWallet: dekuSanWallet, network: Networks.Custom(networkID: 238))!
         web3?.eth.getAccountsPromise().done { result in
-            self.resultLabel.text = "address: \(result.first ?? "")"
+            if let address = result.first {
+                self.resultLabel.text = "address: \(address)"
+            }
         }.catch { error in
             self.resultLabel.text = "error: \(error)"
         }

@@ -11,8 +11,13 @@ PODS:
   - DekuSanSDK/Web3 (0.2.0):
     - CryptoSwift (~> 0.14.0)
     - DekuSanSDK/Core (~> 0.2.0)
-    - web3swift.pod (~> 2.1.10)
-  - keccak.c (0.1.3)
+    - web3swift (~> 2.0.0)
+  - EthereumABI (1.1.1):
+    - BigInt (~> 3.1)
+    - CryptoSwift (~> 0.13)
+    - EthereumAddress (~> 1.0.0)
+  - EthereumAddress (1.0.0):
+    - CryptoSwift (~> 0.13)
   - PromiseKit (6.8.3):
     - PromiseKit/CorePromise (= 6.8.3)
     - PromiseKit/Foundation (= 6.8.3)
@@ -23,16 +28,22 @@ PODS:
   - PromiseKit/UIKit (6.8.3):
     - PromiseKit/CorePromise
   - Result (4.0.1)
-  - scrypt.c (0.1.1)
-  - secp256k1.c (0.1.2)
+  - scrypt (2.0):
+    - CryptoSwift (~> 0.11)
+  - secp256k1_swift (1.0.3)
   - SipHash (1.2.2)
   - SnapKit (4.2.0)
-  - web3swift.pod (2.1.10):
+  - SwiftRLP (1.2):
     - BigInt (~> 3.1)
-    - keccak.c (~> 0.1)
-    - PromiseKit (~> 6.4)
-    - scrypt.c (~> 0.1)
-    - secp256k1.c (~> 0.1)
+  - web3swift (2.0.1):
+    - BigInt (~> 3.1)
+    - CryptoSwift (~> 0.13)
+    - EthereumABI (~> 1.1.1)
+    - EthereumAddress (~> 1.0.0)
+    - PromiseKit (~> 6.3)
+    - scrypt (~> 2.0)
+    - secp256k1_swift (~> 1.0.3)
+    - SwiftRLP (~> 1.1)
 
 DEPENDENCIES:
   - AloeStackView
@@ -40,40 +51,51 @@ DEPENDENCIES:
   - DekuSanSDK (from `../`)
   - DekuSanSDK/Web3 (from `../`)
   - SnapKit
-  - web3swift.pod
+  - web3swift (from `https://github.com/dexon-foundation/web3swift`, branch `develop`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AloeStackView
     - BigInt
     - CryptoSwift
-    - keccak.c
+    - EthereumABI
+    - EthereumAddress
     - PromiseKit
     - Result
-    - scrypt.c
-    - secp256k1.c
+    - scrypt
+    - secp256k1_swift
     - SipHash
     - SnapKit
-    - web3swift.pod
+    - SwiftRLP
 
 EXTERNAL SOURCES:
   DekuSanSDK:
     :path: "../"
+  web3swift:
+    :branch: develop
+    :git: https://github.com/dexon-foundation/web3swift
+
+CHECKOUT OPTIONS:
+  web3swift:
+    :commit: 221b953af583b520387756e61a5a4f63176e2483
+    :git: https://github.com/dexon-foundation/web3swift
 
 SPEC CHECKSUMS:
   AloeStackView: d22c006da4510db5e220968234174654b5ed6ea5
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
-  DekuSanSDK: 7b7793be830a11bbc69979cbcfdf69e98d1c6859
-  keccak.c: 859583afdaccb4e4fcc0f0096064d101580313f4
+  DekuSanSDK: 2625e6d2ebabc117e89ca8b80c78abaaba2a4fe9
+  EthereumABI: f040f5429e5a4366d028c88b88d9441e137593af
+  EthereumAddress: f476e1320dca3a0024431e713ede7a09c7eb7796
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   Result: a6e784bebf48b471d59cddc1adb81f41f678c487
-  scrypt.c: b42ae06183251329d2b2c620c226fb541a4a3592
-  secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
+  scrypt: 3fe5b1a3b0976f97cd87488673a8f7c65708cc84
+  secp256k1_swift: 4fc5c4b2d2c6d21ee8ccb868cdc92da12f38bed9
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  web3swift.pod: e3bd1c18a84e9fc1c4bfab8ebc0754b0806a7bcd
+  SwiftRLP: 98a02b2210128353ca02e4c2f4d83e2a9796db4f
+  web3swift: aadc7a9b0c3b0384227eff181e39ba24ebfcd76c
 
-PODFILE CHECKSUM: f5cd187b338acfbfece253f34e0359aadc817af5
+PODFILE CHECKSUM: cba29f614afef4220e3437e1e373a78425423890
 
 COCOAPODS: 1.6.1

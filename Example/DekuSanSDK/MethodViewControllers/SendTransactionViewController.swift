@@ -5,14 +5,15 @@ import CryptoSwift
 import DekuSanSDK
 import AloeStackView
 import BigInt
-import web3swift
+import Web3swift
+import EthereumAddress
 
 class SendTransactionViewController: UIViewController {
 
     private let dekuSanWallet: DekuSanSDK
     private let callViaWeb3: Bool
     
-    private var web3: Web3?
+    private var web3: web3?
 
     private lazy var stackView: AloeStackView = {
         let stackView = AloeStackView()
@@ -178,22 +179,23 @@ class SendTransactionViewController: UIViewController {
         gasLimit: UInt64?,
         data: Data?
     ) {
-        web3 = Web3(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dekuSanWallet: dekuSanWallet, network: .dexonTestnet)!
-        var transaction = EthereumTransaction(to: Address(toAddress), data: data ?? Data(), options: .default)
-        transaction.value = BigUInt(amount)
+        web3 = Web3.new(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dekuSanWallet: dekuSanWallet, network: Networks.Custom(networkID: 238))!
         
-        var options = Web3Options()
+        var options = TransactionOptions()
+        options.value = BigUInt(amount)
         if let fromAddress = fromAddress {
-            options.from = Address(fromAddress)
+            options.from = EthereumAddress(fromAddress)!
         }
         if let gasPrice = gasPrice {
-            options.gasPrice = BigUInt(gasPrice)
+            options.gasPrice = .manual(BigUInt(gasPrice))
         }
         if let gasLimit = gasLimit {
-            options.gasLimit = BigUInt(gasLimit)
+            options.gasLimit = .manual(BigUInt(gasLimit))
         }
         
-        web3?.eth.sendTransactionPromise(transaction, options: options).done { [weak self] result in
+        let transaction = EthereumTransaction(to: EthereumAddress(toAddress)!, data: data ?? Data(), options: options)
+
+        web3?.eth.sendTransactionPromise(transaction, transactionOptions: options).done { [weak self] result in
             self?.resultLabel.text = "tx: \(result.hash)"
         }.catch { [weak self] error in
             self?.resultLabel.text = "error: \(error)"
