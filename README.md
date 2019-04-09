@@ -1,9 +1,9 @@
-# DekuSanSDK
+# DexonWalletSDK
 
-[![CI Status](https://img.shields.io/travis/dexon-foundation/dekusan-sdk-ios.svg?style=flat)](https://travis-ci.org/dexon-foundation/dekusan-sdk-ios)
-[![Version](https://img.shields.io/cocoapods/v/DekuSanSDK.svg?style=flat)](https://cocoapods.org/pods/DekuSanSDK)
-[![License](https://img.shields.io/cocoapods/l/DekuSanSDK.svg?style=flat)](https://cocoapods.org/pods/DekuSanSDK)
-[![Platform](https://img.shields.io/cocoapods/p/DekuSanSDK.svg?style=flat)](https://cocoapods.org/pods/DekuSanSDK)
+[![CI Status](https://img.shields.io/travis/dexon-foundation/dexon-wallet-sdk-ios.svg?style=flat)](https://travis-ci.org/dexon-foundation/dexon-wallet-sdk-ios)
+[![Version](https://img.shields.io/cocoapods/v/DexonWalletSDK.svg?style=flat)](https://cocoapods.org/pods/DexonWalletSDK)
+[![License](https://img.shields.io/cocoapods/l/DexonWalletSDK.svg?style=flat)](https://cocoapods.org/pods/DexonWalletSDK)
+[![Platform](https://img.shields.io/cocoapods/p/DexonWalletSDK.svg?style=flat)](https://cocoapods.org/pods/DexonWalletSDK)
 
 ## Example
 
@@ -17,11 +17,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-DekuSanSDK is available through [CocoaPods](https://cocoapods.org). To install
+DexonWalletSDK is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'DekuSanSDK'
+pod 'DexonWalletSDK'
 ```
 
 ### Add a scheme for your app
@@ -45,12 +45,12 @@ Open Info.plist and add your scheme
 In your AppDelegate, add the below code:
 
 ```swift
-import DekuSanSDK
+import DexonWalletSDK
 
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Handle wallet results
     if let url = launchOptions?[.url] as? URL {
-        return dekuSanDXNWallet.handleCallback(url: url) || dekuSanETHWallet.handleCallback(url: url)
+        return dexonWallet.handleCallback(url: url) || dexonWallet.handleCallback(url: url)
     }
     
     ...
@@ -60,7 +60,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
     // Handle wallet results
-    return dekuSanDXNWallet.handleCallback(url: url) || dekuSanETHWallet.handleCallback(url: url)
+    return dexonWallet.handleCallback(url: url) || dexonWallet.handleCallback(url: url)
 }
 ```
 
@@ -69,10 +69,10 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 ### Reqeust Accounts
 
 ```swift
-import DekuSanSDK
+import DexonWalletSDK
 
-let dekuSanWallet = DekuSanSDK(name: "SDK-Example", callbackScheme: "example-dekusan", blockchain: .dexon)
-dekuSanWallet.requestAccounts { (result) in
+let dexonWallet = DexonWalletSDK(name: "SDK-Example", callbackScheme: "example-dexon-wallet", blockchain: .dexon)
+dexonWallet.requestAccounts { (result) in
     switch result {
     case .success(let address):
         debugPrint(address)
@@ -85,10 +85,10 @@ dekuSanWallet.requestAccounts { (result) in
 ### Sign Message / Personal Message / Typed Message
 
 ```swift
-import DekuSanSDK
+import DexonWalletSDK
 
-let dekuSanWallet = DekuSanSDK(name: "SDK-Example", callbackScheme: "example-dekusan", blockchain: .dexon)
-dekuSanWallet.sign(message: "any message you wanna sign") { (result) in
+let dexonWallet = DexonWalletSDK(name: "SDK-Example", callbackScheme: "example-dexon-wallet", blockchain: .dexon)
+dexonWallet.sign(message: "any message you wanna sign") { (result) in
     switch result {
     case .success(let signature):
         debugPrint(signature)
@@ -98,19 +98,19 @@ dekuSanWallet.sign(message: "any message you wanna sign") { (result) in
 }
 
 // For personal message
-// dekuSanWallet.sign(personalMessage:)
+// dexonWallet.sign(personalMessage:)
 
 // For typed message
-// dekuSanWallet.sign(typedMessage:)
+// dexonWallet.sign(typedMessage:)
 ```
 
 ### Send Transaction
 
 ```swift
-import DekuSanSDK
+import DexonWalletSDK
 
-let dekuSanWallet = DekuSanSDK(name: "SDK-Example", callbackScheme: "example-dekusan", blockchain: .dexon)
-dekuSanWallet.sendTransaction(toAddress: "0xb25d07735d5B9B5601C549e901b04bd3A5Af93a6", amount: 1) { (result) in
+let dexonWallet = DexonWalletSDK(name: "SDK-Example", callbackScheme: "example-dexon-wallet", blockchain: .dexon)
+dexonWallet.sendTransaction(toAddress: "0xb25d07735d5B9B5601C549e901b04bd3A5Af93a6", amount: 1) { (result) in
     switch result {
     case .success(let tx):
         debugPrint(tx)
@@ -125,17 +125,17 @@ dekuSanWallet.sendTransaction(toAddress: "0xb25d07735d5B9B5601C549e901b04bd3A5Af
 Add one more line to your Podfile and run `pod install`:
 
 ```ruby
-pod 'DekuSanSDK/Web3'
+pod 'DexonWalletSDK/Web3'
 ```
 
-And then init web3 with DekuSanWallet object.
+And then init web3 with DexonWallet object.
 
 ```swift
-import DekuSanSDK
+import DexonWalletSDK
 import web3swift
 
 let dexonRpcURL = URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!
-web3 = Web3(dexonRpcURL: dexonRpcURL, dekuSanWallet: dekuSanWallet, network: .dexonTestnet)
+web3 = Web3(dexonRpcURL: dexonRpcURL, dexonWallet: dexonWallet, network: .dexonTestnet)
 ```
 
 #### Request Accounts
@@ -179,7 +179,7 @@ web3.eth.sendTransactionPromise(transaction, options: options).done { result in
 
 ## License
 
-DekuSanSDK is available under the MIT license. See the LICENSE file for more info.
+DexonWalletSDK is available under the MIT license. See the LICENSE file for more info.
 
 ## Thanks
 TrustSDK-iOS and MathWalletSDK-iOS

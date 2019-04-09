@@ -2,14 +2,14 @@
 
 import UIKit
 import CryptoSwift
-import DekuSanSDK
+import DexonWalletSDK
 import AloeStackView
 import BigInt
 import web3swift
 
 class SendTransactionViewController: UIViewController {
 
-    private let dekuSanWallet: DekuSanSDK
+    private let dexonWalletSDK: DexonWalletSDK
     private let callViaWeb3: Bool
     
     private var web3: Web3?
@@ -101,8 +101,8 @@ class SendTransactionViewController: UIViewController {
         return label
     }()
 
-    init(dekuSanWallet: DekuSanSDK, callViaWeb3: Bool = false) {
-        self.dekuSanWallet = dekuSanWallet
+    init(dexonWalletSDK: DexonWalletSDK, callViaWeb3: Bool = false) {
+        self.dexonWalletSDK = dexonWalletSDK
         self.callViaWeb3 = callViaWeb3
         super.init(nibName: nil, bundle: nil)
     }
@@ -178,7 +178,7 @@ class SendTransactionViewController: UIViewController {
         gasLimit: UInt64?,
         data: Data?
     ) {
-        web3 = Web3(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dekuSanWallet: dekuSanWallet, network: .dexonTestnet)!
+        web3 = Web3(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dexonWallet: dexonWalletSDK, network: .dexonTestnet)!
         var transaction = EthereumTransaction(to: Address(toAddress), data: data ?? Data(), options: .default)
         transaction.value = BigUInt(amount)
         
@@ -225,7 +225,7 @@ class SendTransactionViewController: UIViewController {
                 }
             }
 
-        dekuSanWallet.run(method: method)
+        dexonWalletSDK.run(method: method)
     }
     
     @objc

@@ -57,7 +57,7 @@ public final class RequestAccountsMethod: Method {
     }
 }
 
-public extension DekuSanSDK {
+public extension DexonWalletSDK {
 
     public func requestAccounts(completion: @escaping RequestAccountsMethod.Completion) {
         let method = RequestAccountsMethod(completion: completion)

@@ -1,20 +1,20 @@
 // Copyright DEXON Org. All rights reserved.
 
 import UIKit
-import DekuSanSDK
+import DexonWalletSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let dekuSanDXNWallet = DekuSanSDK(name: "SDK-Example", callbackScheme: "example-dekusan", blockchain: .dexon)
-    let dekuSanETHWallet = DekuSanSDK(name: "SDK-Example", callbackScheme: "example-dekusan", blockchain: .ethereum)
+    let dexonDXNWallet = DexonWalletSDK(name: "SDK-Example", callbackScheme: "example-dexon-wallet", blockchain: .dexon)
+    let dexonETHWallet = DexonWalletSDK(name: "SDK-Example", callbackScheme: "example-dexon-wallet", blockchain: .ethereum)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Handle wallet results
         if let url = launchOptions?[.url] as? URL {
-            return dekuSanDXNWallet.handleCallback(url: url) || dekuSanETHWallet.handleCallback(url: url)
+            return dexonDXNWallet.handleCallback(url: url) || dexonETHWallet.handleCallback(url: url)
         }
 
         window?.rootViewController = UINavigationController(rootViewController: MethodListViewController())
@@ -38,6 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         // Handle wallet results
-        return dekuSanDXNWallet.handleCallback(url: url) || dekuSanETHWallet.handleCallback(url: url)
+        return dexonDXNWallet.handleCallback(url: url) || dexonETHWallet.handleCallback(url: url)
     }
 }

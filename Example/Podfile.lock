@@ -3,14 +3,14 @@ PODS:
   - BigInt (3.1.0):
     - SipHash (~> 1.2)
   - CryptoSwift (0.14.0)
-  - DekuSanSDK (0.2.0):
-    - DekuSanSDK/Core (= 0.2.0)
-  - DekuSanSDK/Core (0.2.0):
+  - DexonWalletSDK (0.2.0):
+    - DexonWalletSDK/Core (= 0.2.0)
+  - DexonWalletSDK/Core (0.2.0):
     - BigInt (~> 3.1.0)
     - Result (~> 4.0.0)
-  - DekuSanSDK/Web3 (0.2.0):
+  - DexonWalletSDK/Web3 (0.2.0):
     - CryptoSwift (~> 0.14.0)
-    - DekuSanSDK/Core (~> 0.2.0)
+    - DexonWalletSDK/Core (~> 0.2.0)
     - web3swift.pod (~> 2.1.10)
   - keccak.c (0.1.3)
   - PromiseKit (6.8.3):
@@ -37,8 +37,8 @@ PODS:
 DEPENDENCIES:
   - AloeStackView
   - CryptoSwift
-  - DekuSanSDK (from `../`)
-  - DekuSanSDK/Web3 (from `../`)
+  - DexonWalletSDK (from `../`)
+  - DexonWalletSDK/Web3 (from `../`)
   - SnapKit
   - web3swift.pod
 
@@ -57,14 +57,14 @@ SPEC REPOS:
     - web3swift.pod
 
 EXTERNAL SOURCES:
-  DekuSanSDK:
+  DexonWalletSDK:
     :path: "../"
 
 SPEC CHECKSUMS:
   AloeStackView: d22c006da4510db5e220968234174654b5ed6ea5
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
-  DekuSanSDK: 7b7793be830a11bbc69979cbcfdf69e98d1c6859
+  DexonWalletSDK: a66eb6a4bbeebe1ec8caa6d6eab6d7754cdca5c3
   keccak.c: 859583afdaccb4e4fcc0f0096064d101580313f4
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   Result: a6e784bebf48b471d59cddc1adb81f41f678c487
@@ -74,6 +74,6 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   web3swift.pod: e3bd1c18a84e9fc1c4bfab8ebc0754b0806a7bcd
 
-PODFILE CHECKSUM: f5cd187b338acfbfece253f34e0359aadc817af5
+PODFILE CHECKSUM: 40f7d950a47e8514aece9217d80713d12252c951
 
 COCOAPODS: 1.6.1

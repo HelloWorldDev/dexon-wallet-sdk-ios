@@ -1,7 +1,7 @@
 // Copyright DEXON Org. All rights reserved.
 
 import UIKit
-import DekuSanSDK
+import DexonWalletSDK
 
 class SignTypedMessageViewController: SignMessageViewController {
 
@@ -27,6 +27,6 @@ class SignTypedMessageViewController: SignMessageViewController {
                 }
         }
 
-        dekuSanWallet.run(method: method)
+        dexonWalletSDK.run(method: method)
     }
 }

@@ -1,7 +1,7 @@
 // Copyright DEXON Org. All rights reserved.
 
 import XCTest
-import DekuSanSDK
+import DexonWalletSDK
 import CryptoSwift
 
 class SendTransactionMethodTests: XCTestCase {
@@ -28,8 +28,8 @@ class SendTransactionMethodTests: XCTestCase {
             gasLimit: 3,
             nonce: 4,
             data: message.data(using: .utf8)) { _ in }
-        let url = method.requestURL(scheme: "dekusan", queryItems: items)
-        XCTAssertEqual(url.absoluteString, "dekusan://send-transaction?id=1122&blockchain=dexon&callback=example&name=dapp" +
+        let url = method.requestURL(scheme: "dexon-wallet", queryItems: items)
+        XCTAssertEqual(url.absoluteString, "dexon-wallet://send-transaction?id=1122&blockchain=dexon&callback=example&name=dapp" +
             "&from=\(fromAddress)" + "&to=\(toAddress)" + "&amount=1" + "&gas-price=2" + "&gas-limit=3" + "&nonce=4" + "&data=RGVrdVNhbiBpcyBjb29s")
     }
 
@@ -49,8 +49,8 @@ class SendTransactionMethodTests: XCTestCase {
             gasLimit: 3,
             nonce: 4,
             data: message.data(using: .utf8)) { _ in }
-        let url = method.requestURL(scheme: "dekusan", queryItems: items)
-        XCTAssertEqual(url.absoluteString, "dekusan://send-transaction?id=1122&blockchain=ethereum&callback=example&name=dapp" +
+        let url = method.requestURL(scheme: "dexon-wallet", queryItems: items)
+        XCTAssertEqual(url.absoluteString, "dexon-wallet://send-transaction?id=1122&blockchain=ethereum&callback=example&name=dapp" +
             "&from=\(fromAddress)" + "&to=\(toAddress)" + "&amount=1" + "&gas-price=2" + "&gas-limit=3" + "&nonce=4" + "&data=RGVrdVNhbiBpcyBjb29s")
     }
 
@@ -59,7 +59,7 @@ class SendTransactionMethodTests: XCTestCase {
         let toAddress = "0xb25d07735d5B9B5601C549e901b04bd3A5Af93a7"
         let message = "DekuSan is cool"
         let components = URLComponents(
-            string: "dekusan://send-transaction?id=1122&blockchain=ethereum&callback=example&name=dapp" +
+            string: "dexon-wallet://send-transaction?id=1122&blockchain=ethereum&callback=example&name=dapp" +
                 "&from=\(fromAddress)" + "&to=\(toAddress)" + "&amount=1" + "&gas-price=2" + "&gas-limit=3" + "&nonce=4" + "&data=RGVrdVNhbiBpcyBjb29s")!
         let method = SendTransactionMethod(components: components)
         XCTAssertNotNil(method)
@@ -74,9 +74,8 @@ class SendTransactionMethodTests: XCTestCase {
 
     func testHandleSucceedCallback() {
         let tx = "0xa5e2930c25e73b3fd07b2c84986ac466254ff2aece194b8fafaf4ae96daac414"
-        let data = Data(hex: tx.drop0x)
 
-        let components = URLComponents(string: "example://dekusan?id=1122&transaction-hash=" + data.base64EncodedString())!
+        let components = URLComponents(string: "example://dexon-wallet?id=1122&transaction-hash=" + tx)!
         let method = SendTransactionMethod(toAddress: "", amount: 0) { (result) in
             XCTAssertEqual(result.value, tx.lowercased())
         }
@@ -85,7 +84,7 @@ class SendTransactionMethodTests: XCTestCase {
     }
 
     func testHandleErrorCallback() {
-        let components = URLComponents(string: "example://dekusan?id=1122&error=1")!
+        let components = URLComponents(string: "example://dexon-wallet?id=1122&error=1")!
         let method = SendTransactionMethod(toAddress: "", amount: 0) { (result) in
             XCTAssertEqual(result.error, WalletSDKError.cancelled)
         }

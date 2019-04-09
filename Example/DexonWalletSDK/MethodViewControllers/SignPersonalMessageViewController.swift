@@ -1,7 +1,7 @@
 // Copyright DEXON Org. All rights reserved.
 
 import UIKit
-import DekuSanSDK
+import DexonWalletSDK
 import web3swift
 
 class SignPersonalMessageViewController: SignMessageViewController {
@@ -25,7 +25,7 @@ class SignPersonalMessageViewController: SignMessageViewController {
             self.resultLabel.text = "need to fill the address in"
             return
         }
-        web3 = Web3(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dekuSanWallet: dekuSanWallet, network: .dexonTestnet)!
+        web3 = Web3(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dexonWallet: dexonWalletSDK, network: .dexonTestnet)!
         web3?.personal.signPersonalMessagePromise(message: messageData, from: Address(fromAddress)).done { [weak self] signature in
             self?.resultLabel.text = "signature: 0x\(signature.hex)"
         }.catch { [weak self] error in
@@ -45,6 +45,6 @@ class SignPersonalMessageViewController: SignMessageViewController {
                 }
         }
 
-        dekuSanWallet.run(method: method)
+        dexonWalletSDK.run(method: method)
     }
 }

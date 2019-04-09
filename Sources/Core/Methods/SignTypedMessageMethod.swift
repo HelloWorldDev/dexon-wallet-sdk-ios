@@ -10,7 +10,7 @@ public class SignTypedMessageMethod: SignMessageMethod {
     }
 }
 
-public extension DekuSanSDK {
+public extension DexonWalletSDK {
 
     public func sign(typedMessage: String, fromAddress: String? = nil, completion: @escaping SignTypedMessageMethod.Completion) {
         guard let data = typedMessage.data(using: .utf8) else {

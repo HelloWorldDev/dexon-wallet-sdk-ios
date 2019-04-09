@@ -4,11 +4,11 @@ import Foundation
 import Result
 import UIKit
 
-public final class DekuSanWallet {
+public final class DexonWallet {
 
-    public weak var delegate: DekuSanWalletDelegate?
+    public weak var delegate: DexonWalletDelegate?
 
-    public init(delegate: DekuSanWalletDelegate) {
+    public init(delegate: DexonWalletDelegate) {
         self.delegate = delegate
     }
 
@@ -145,7 +145,7 @@ public final class DekuSanWallet {
     private func handle(callback: String?, id: String?, queryItems items: [URLQueryItem]) {
         var components = URLComponents()
         components.scheme = callback
-        components.host = DekuSanSDK.walletScheme
+        components.host = DexonWalletSDK.walletScheme
         components.queryItems = [URLQueryItem(name: GeneralQueryItemName.id.rawValue, value: id)] + items
 
         if let url = components.url {
@@ -155,7 +155,7 @@ public final class DekuSanWallet {
 }
 
 /// Wallets should implement this delegate to handle requests
-public protocol DekuSanWalletDelegate: AnyObject {
+public protocol DexonWalletDelegate: AnyObject {
 
     /// Signs a message with the specified address
     ///

@@ -82,7 +82,7 @@ public class SignMessageMethod: Method {
     }
 }
 
-public extension DekuSanSDK {
+public extension DexonWalletSDK {
 
     public func sign(message: String, fromAddress: String? = nil, completion: @escaping SignMessageMethod.Completion) {
         guard let data = message.data(using: .utf8) else {

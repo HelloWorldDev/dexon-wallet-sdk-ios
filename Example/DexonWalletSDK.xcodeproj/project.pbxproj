@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		490BF1FFE657BEAB43FEAE1A /* Pods_DekuSanSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8701F75E55DC0A2188DD7 /* Pods_DekuSanSDK_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		82D0CC3A28E7A01D79D3248C /* Pods_DekuSanSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046B0673BED73566413B47C2 /* Pods_DekuSanSDK_Tests.framework */; };
+		8921637DA79EBAB467BD6F21 /* Pods_DexonWalletSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1392D983369C2768CCA129 /* Pods_DexonWalletSDK_Tests.framework */; };
 		D8C8FCD121F9834F00E9E625 /* MethodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCD021F9834F00E9E625 /* MethodListViewController.swift */; };
 		D8C8FCD321F98AC900E9E625 /* RequestAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCD221F98AC900E9E625 /* RequestAccountsViewController.swift */; };
 		D8C8FCDB21F98F3300E9E625 /* SignMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCDA21F98F3300E9E625 /* SignMessageViewController.swift */; };
@@ -26,6 +25,7 @@
 		D8C8FCF021FAB4CD00E9E625 /* SignTypedMessageMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCEF21FAB4CD00E9E625 /* SignTypedMessageMethodTests.swift */; };
 		D8C8FCF221FAB59600E9E625 /* SendTransactionMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C8FCF121FAB59600E9E625 /* SendTransactionMethodTests.swift */; };
 		D8CDDA592225233500D97712 /* Web3SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDDA582225233500D97712 /* Web3SampleViewController.swift */; };
+		FF1582F0B1CD75C4346CE7BC /* Pods_DexonWalletSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142ACDC28AE85910812F9B52 /* Pods_DexonWalletSDK_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,27 +34,28 @@
 			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
-			remoteInfo = DekuSanSDK;
+			remoteInfo = DexonWalletSDK;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		046B0673BED73566413B47C2 /* Pods_DekuSanSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DekuSanSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0675A35851F12CB750747268 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		328E6E7F0922E258FF645AA6 /* DekuSanSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DekuSanSDK.podspec; path = ../DekuSanSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		142ACDC28AE85910812F9B52 /* Pods_DexonWalletSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DexonWalletSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		328E6E7F0922E258FF645AA6 /* DexonWalletSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DexonWalletSDK.podspec; path = ../DexonWalletSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3E8CD1E9EB833FF04FA56996 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		54B8701F75E55DC0A2188DD7 /* Pods_DekuSanSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DekuSanSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACD01AFB9204008FA782 /* DekuSanSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DekuSanSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4336948266587EE4F3D4C7CC /* Pods-DexonWalletSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DexonWalletSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DexonWalletSDK_Tests/Pods-DexonWalletSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		4F1392D983369C2768CCA129 /* Pods_DexonWalletSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DexonWalletSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* DexonWalletSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DexonWalletSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* DekuSanSDK_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DekuSanSDK_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACE51AFB9204008FA782 /* DexonWalletSDK_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DexonWalletSDK_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8048E49ED6EE39E11B54F6BD /* Pods-DekuSanSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
-		A5431596052DBFF5BB9DD989 /* Pods-DekuSanSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Tests/Pods-DekuSanSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		B42FD8CC8F0179A72CBA1AAF /* Pods-DekuSanSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		6A1263C89ADE8928A26CF7FB /* Pods-DexonWalletSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DexonWalletSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DexonWalletSDK_Tests/Pods-DexonWalletSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		9964B35651166C7796AD3BD8 /* Pods-DexonWalletSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DexonWalletSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DexonWalletSDK_Example/Pods-DexonWalletSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C1267AB0A868190544908E51 /* Pods-DexonWalletSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DexonWalletSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DexonWalletSDK_Example/Pods-DexonWalletSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D8C8FCD021F9834F00E9E625 /* MethodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodListViewController.swift; sourceTree = "<group>"; };
 		D8C8FCD221F98AC900E9E625 /* RequestAccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAccountsViewController.swift; sourceTree = "<group>"; };
 		D8C8FCDA21F98F3300E9E625 /* SignMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignMessageViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		D8C8FCEF21FAB4CD00E9E625 /* SignTypedMessageMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTypedMessageMethodTests.swift; sourceTree = "<group>"; };
 		D8C8FCF121FAB59600E9E625 /* SendTransactionMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTransactionMethodTests.swift; sourceTree = "<group>"; };
 		D8CDDA582225233500D97712 /* Web3SampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web3SampleViewController.swift; sourceTree = "<group>"; };
-		FF64E93E51AB9B5274834407 /* Pods-DekuSanSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DekuSanSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DekuSanSDK_Tests/Pods-DekuSanSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				490BF1FFE657BEAB43FEAE1A /* Pods_DekuSanSDK_Example.framework in Frameworks */,
+				FF1582F0B1CD75C4346CE7BC /* Pods_DexonWalletSDK_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82D0CC3A28E7A01D79D3248C /* Pods_DekuSanSDK_Tests.framework in Frameworks */,
+				8921637DA79EBAB467BD6F21 /* Pods_DexonWalletSDK_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACD21AFB9204008FA782 /* Example for DekuSanSDK */,
+				607FACD21AFB9204008FA782 /* Example for DexonWalletSDK */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				EB337BD71B3D7B79347BC08F /* Pods */,
@@ -106,13 +106,13 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* DekuSanSDK_Example.app */,
-				607FACE51AFB9204008FA782 /* DekuSanSDK_Tests.xctest */,
+				607FACD01AFB9204008FA782 /* DexonWalletSDK_Example.app */,
+				607FACE51AFB9204008FA782 /* DexonWalletSDK_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		607FACD21AFB9204008FA782 /* Example for DekuSanSDK */ = {
+		607FACD21AFB9204008FA782 /* Example for DexonWalletSDK */ = {
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -124,8 +124,8 @@
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
-			name = "Example for DekuSanSDK";
-			path = DekuSanSDK;
+			name = "Example for DexonWalletSDK";
+			path = DexonWalletSDK;
 			sourceTree = "<group>";
 		};
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
@@ -161,7 +161,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				328E6E7F0922E258FF645AA6 /* DekuSanSDK.podspec */,
+				328E6E7F0922E258FF645AA6 /* DexonWalletSDK.podspec */,
 				3E8CD1E9EB833FF04FA56996 /* README.md */,
 				0675A35851F12CB750747268 /* LICENSE */,
 			);
@@ -171,8 +171,8 @@
 		7474C20E0C68288515E132FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				54B8701F75E55DC0A2188DD7 /* Pods_DekuSanSDK_Example.framework */,
-				046B0673BED73566413B47C2 /* Pods_DekuSanSDK_Tests.framework */,
+				142ACDC28AE85910812F9B52 /* Pods_DexonWalletSDK_Example.framework */,
+				4F1392D983369C2768CCA129 /* Pods_DexonWalletSDK_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,10 +192,10 @@
 		EB337BD71B3D7B79347BC08F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B42FD8CC8F0179A72CBA1AAF /* Pods-DekuSanSDK_Example.debug.xcconfig */,
-				8048E49ED6EE39E11B54F6BD /* Pods-DekuSanSDK_Example.release.xcconfig */,
-				FF64E93E51AB9B5274834407 /* Pods-DekuSanSDK_Tests.debug.xcconfig */,
-				A5431596052DBFF5BB9DD989 /* Pods-DekuSanSDK_Tests.release.xcconfig */,
+				9964B35651166C7796AD3BD8 /* Pods-DexonWalletSDK_Example.debug.xcconfig */,
+				C1267AB0A868190544908E51 /* Pods-DexonWalletSDK_Example.release.xcconfig */,
+				6A1263C89ADE8928A26CF7FB /* Pods-DexonWalletSDK_Tests.debug.xcconfig */,
+				4336948266587EE4F3D4C7CC /* Pods-DexonWalletSDK_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -203,9 +203,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		607FACCF1AFB9204008FA782 /* DekuSanSDK_Example */ = {
+		607FACCF1AFB9204008FA782 /* DexonWalletSDK_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DekuSanSDK_Example" */;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DexonWalletSDK_Example" */;
 			buildPhases = (
 				1E0BF261FE76E34ADFC880F9 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
@@ -217,14 +217,14 @@
 			);
 			dependencies = (
 			);
-			name = DekuSanSDK_Example;
-			productName = DekuSanSDK;
-			productReference = 607FACD01AFB9204008FA782 /* DekuSanSDK_Example.app */;
+			name = DexonWalletSDK_Example;
+			productName = DexonWallet;
+			productReference = 607FACD01AFB9204008FA782 /* DexonWalletSDK_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACE41AFB9204008FA782 /* DekuSanSDK_Tests */ = {
+		607FACE41AFB9204008FA782 /* DexonWalletSDK_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DekuSanSDK_Tests" */;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DexonWalletSDK_Tests" */;
 			buildPhases = (
 				48E0F165CE8FFAF3B208C566 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
@@ -236,9 +236,9 @@
 			dependencies = (
 				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
 			);
-			name = DekuSanSDK_Tests;
+			name = DexonWalletSDK_Tests;
 			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* DekuSanSDK_Tests.xctest */;
+			productReference = 607FACE51AFB9204008FA782 /* DexonWalletSDK_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -254,6 +254,7 @@
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -262,7 +263,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "DekuSanSDK" */;
+			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "DexonWalletSDK" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -275,8 +276,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACCF1AFB9204008FA782 /* DekuSanSDK_Example */,
-				607FACE41AFB9204008FA782 /* DekuSanSDK_Tests */,
+				607FACCF1AFB9204008FA782 /* DexonWalletSDK_Example */,
+				607FACE41AFB9204008FA782 /* DexonWalletSDK_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -317,7 +318,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DekuSanSDK_Example-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DexonWalletSDK_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -339,7 +340,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DekuSanSDK_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DexonWalletSDK_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -354,11 +355,11 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DexonWalletSDK_Example/Pods-DexonWalletSDK_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AloeStackView/AloeStackView.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/DekuSanSDK/DekuSanSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/DexonWalletSDK/DexonWalletSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
@@ -375,7 +376,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AloeStackView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DekuSanSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DexonWalletSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
@@ -387,7 +388,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DekuSanSDK_Example/Pods-DekuSanSDK_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DexonWalletSDK_Example/Pods-DexonWalletSDK_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -426,7 +427,7 @@
 /* Begin PBXTargetDependency section */
 		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* DekuSanSDK_Example */;
+			target = 607FACCF1AFB9204008FA782 /* DexonWalletSDK_Example */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -556,14 +557,17 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B42FD8CC8F0179A72CBA1AAF /* Pods-DekuSanSDK_Example.debug.xcconfig */;
+			baseConfigurationReference = 9964B35651166C7796AD3BD8 /* Pods-DexonWalletSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = DekuSanSDK/Info.plist;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = DexonWalletSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.DexonWalletSDK-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 			};
@@ -571,14 +575,17 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8048E49ED6EE39E11B54F6BD /* Pods-DekuSanSDK_Example.release.xcconfig */;
+			baseConfigurationReference = C1267AB0A868190544908E51 /* Pods-DexonWalletSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = DekuSanSDK/Info.plist;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = DexonWalletSDK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.DexonWalletSDK-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 			};
@@ -586,7 +593,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF64E93E51AB9B5274834407 /* Pods-DekuSanSDK_Tests.debug.xcconfig */;
+			baseConfigurationReference = 6A1263C89ADE8928A26CF7FB /* Pods-DexonWalletSDK_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -602,13 +609,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DekuSanSDK_Example.app/DekuSanSDK_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DexonWalletSDK_Example.app/DexonWalletSDK_Example";
 			};
 			name = Debug;
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5431596052DBFF5BB9DD989 /* Pods-DekuSanSDK_Tests.release.xcconfig */;
+			baseConfigurationReference = 4336948266587EE4F3D4C7CC /* Pods-DexonWalletSDK_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -620,14 +627,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DekuSanSDK_Example.app/DekuSanSDK_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DexonWalletSDK_Example.app/DexonWalletSDK_Example";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "DekuSanSDK" */ = {
+		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "DexonWalletSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACED1AFB9204008FA782 /* Debug */,
@@ -636,7 +643,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DekuSanSDK_Example" */ = {
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DexonWalletSDK_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
@@ -645,7 +652,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DekuSanSDK_Tests" */ = {
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DexonWalletSDK_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
