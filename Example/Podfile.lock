@@ -64,7 +64,7 @@ SPEC CHECKSUMS:
   AloeStackView: d22c006da4510db5e220968234174654b5ed6ea5
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
   CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
-  DexonWalletSDK: 2ae43352b381f2e83fb1ddef7a1aac56d585ff86
+  DexonWalletSDK: a66eb6a4bbeebe1ec8caa6d6eab6d7754cdca5c3
   keccak.c: 859583afdaccb4e4fcc0f0096064d101580313f4
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   Result: a6e784bebf48b471d59cddc1adb81f41f678c487

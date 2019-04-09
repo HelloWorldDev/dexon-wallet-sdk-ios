@@ -34,19 +34,17 @@
 			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
-			remoteInfo = DekuSanSDK;
+			remoteInfo = DexonWalletSDK;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		046B0673BED73566413B47C2 /* Pods_DekuSanSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DekuSanSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0675A35851F12CB750747268 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		142ACDC28AE85910812F9B52 /* Pods_DexonWalletSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DexonWalletSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		328E6E7F0922E258FF645AA6 /* DexonWalletSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DexonWalletSDK.podspec; path = ../DexonWalletSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3E8CD1E9EB833FF04FA56996 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4336948266587EE4F3D4C7CC /* Pods-DexonWalletSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DexonWalletSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DexonWalletSDK_Tests/Pods-DexonWalletSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4F1392D983369C2768CCA129 /* Pods_DexonWalletSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DexonWalletSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54B8701F75E55DC0A2188DD7 /* Pods_DekuSanSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DekuSanSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* DexonWalletSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DexonWalletSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,8 +171,6 @@
 		7474C20E0C68288515E132FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				54B8701F75E55DC0A2188DD7 /* Pods_DekuSanSDK_Example.framework */,
-				046B0673BED73566413B47C2 /* Pods_DekuSanSDK_Tests.framework */,
 				142ACDC28AE85910812F9B52 /* Pods_DexonWalletSDK_Example.framework */,
 				4F1392D983369C2768CCA129 /* Pods_DexonWalletSDK_Tests.framework */,
 			);
@@ -222,7 +218,7 @@
 			dependencies = (
 			);
 			name = DexonWalletSDK_Example;
-			productName = DekuSanSDK;
+			productName = DexonWallet;
 			productReference = 607FACD01AFB9204008FA782 /* DexonWalletSDK_Example.app */;
 			productType = "com.apple.product-type.application";
 		};

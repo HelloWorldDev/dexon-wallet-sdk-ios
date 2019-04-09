@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:DekuSanSDK.xcodeproj">
+      location = "self:DexonWalletSDK.xcodeproj">
    </FileRef>
 </Workspace>
