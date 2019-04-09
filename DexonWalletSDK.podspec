@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
-  s.name             = 'DekuSanSDK'
+  s.name             = 'DexonWalletSDK'
   s.version          = '0.2.0'
-  s.summary          = 'DekuSan SDK for iOS'
+  s.summary          = 'DEXON Wallet SDK for iOS'
 
   s.homepage         = 'https://dexon.org/'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'DEXON Foundation' => 'support@dexon.org' }
-  s.source           = { :git => 'https://github.com/dexon-foundation/dekusan-sdk-ios.git', :tag => "v#{ s.version.to_s }" }
+  s.source           = { :git => 'https://github.com/dexon-foundation/dexon-wallet-sdk-ios.git', :tag => "v#{ s.version.to_s }" }
   s.social_media_url = 'https://twitter.com/dexonfoundation'
 
   s.ios.deployment_target = '9.0'
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.subspec 'Web3' do |ss|
     ss.source_files = 'Sources/Web3/**/*.{swift}'
 
-    ss.dependency 'DekuSanSDK/Core', '~> 0.2.0'
+    ss.dependency 'DexonWalletSDK/Core', '~> 0.2.0'
     ss.dependency 'CryptoSwift', '~> 0.14.0'
     ss.dependency 'web3swift.pod', '~> 2.1.10'
   end

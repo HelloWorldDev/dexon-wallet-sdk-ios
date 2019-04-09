@@ -145,7 +145,7 @@ public final class DekuSanWallet {
     private func handle(callback: String?, id: String?, queryItems items: [URLQueryItem]) {
         var components = URLComponents()
         components.scheme = callback
-        components.host = DekuSanSDK.walletScheme
+        components.host = DexonWalletSDK.walletScheme
         components.queryItems = [URLQueryItem(name: GeneralQueryItemName.id.rawValue, value: id)] + items
 
         if let url = components.url {

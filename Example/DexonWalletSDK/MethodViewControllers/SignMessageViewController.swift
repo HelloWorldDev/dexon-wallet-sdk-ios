@@ -1,12 +1,12 @@
 // Copyright DEXON Org. All rights reserved.
 
 import UIKit
-import DekuSanSDK
+import DexonWalletSDK
 import AloeStackView
 
 class SignMessageViewController: UIViewController {
 
-    let dekuSanWallet: DekuSanSDK
+    let dexonWalletSDK: DexonWalletSDK
     let callViaWeb3: Bool
 
     var defaultMessage: String {
@@ -61,8 +61,8 @@ class SignMessageViewController: UIViewController {
         return label
     }()
 
-    init(dekuSanWallet: DekuSanSDK, callViaWeb3: Bool = false) {
-        self.dekuSanWallet = dekuSanWallet
+    init(dexonWalletSDK: DexonWalletSDK, callViaWeb3: Bool = false) {
+        self.dexonWalletSDK = dexonWalletSDK
         self.callViaWeb3 = callViaWeb3
         super.init(nibName: nil, bundle: nil)
     }
@@ -111,7 +111,7 @@ class SignMessageViewController: UIViewController {
                 }
             }
 
-        dekuSanWallet.run(method: method)
+        dexonWalletSDK.run(method: method)
     }
     
     @objc

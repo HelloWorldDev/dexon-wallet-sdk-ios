@@ -3,15 +3,15 @@
 import Foundation
 import UIKit
 
-public final class DekuSanSDK {
+public final class DexonWalletSDK {
 
-    public static let walletScheme: String = "dekusan"
+    public static let walletScheme: String = "dexon-wallet"
 
     public static var isAvailable: Bool {
         return UIApplication.shared.canOpenURL(URL(string: "\(walletScheme)://")!)
     }
 
-    /// The dapp name sent to DekuSan Wallet app
+    /// The dapp name sent to Dexon Wallet app
     public let name: String
 
     /// The callback URL scheme.
@@ -36,7 +36,7 @@ public final class DekuSanSDK {
                      URLQueryItem(name: GeneralQueryItemName.callback.rawValue, value: callbackScheme),
                      URLQueryItem(name: GeneralQueryItemName.name.rawValue, value: name)]
 
-        let url = method.requestURL(scheme: DekuSanSDK.walletScheme, queryItems: items)
+        let url = method.requestURL(scheme: type(of: self).walletScheme, queryItems: items)
         runningMethods[id] = method
         DispatchQueue.main.safeAsync {
             if #available(iOS 10.0, *) {
@@ -53,7 +53,7 @@ public final class DekuSanSDK {
     public func handleCallback(url: URL) -> Bool {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
             components.scheme == callbackScheme,
-            components.host == DekuSanSDK.walletScheme else {
+            components.host == type(of: self).walletScheme else {
             return false
         }
 

@@ -25,7 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>example-dekusan</string>
+				<string>example-dexon-wallet</string>
 			</array>
 		</dict>
 	</array>

@@ -1,7 +1,7 @@
 // Copyright DEXON Org. All rights reserved.
 
 import XCTest
-import DekuSanSDK
+import DexonWalletSDK
 import CryptoSwift
 
 class SignMessageMethodTests: XCTestCase {
@@ -22,8 +22,8 @@ class SignMessageMethodTests: XCTestCase {
         let address = "0xb25d07735d5B9B5601C549e901b04bd3A5Af93a6"
         let message = "DekuSan is cool"
         let method = SignMessageMethod(message: message.data(using: .utf8)!, fromAddress: address) { _ in }
-        let url = method.requestURL(scheme: "dekusan", queryItems: items)
-        XCTAssertEqual(url.absoluteString, "dekusan://sign-message?id=1122&blockchain=dexon&callback=example&name=dapp&message=RGVrdVNhbiBpcyBjb29s&from=" + address)
+        let url = method.requestURL(scheme: "dexon-wallet", queryItems: items)
+        XCTAssertEqual(url.absoluteString, "dexon-wallet://sign-message?id=1122&blockchain=dexon&callback=example&name=dapp&message=RGVrdVNhbiBpcyBjb29s&from=" + address)
     }
 
     func testRequestURLWithEthereum() {
@@ -34,15 +34,15 @@ class SignMessageMethodTests: XCTestCase {
         let address = "0xb25d07735d5B9B5601C549e901b04bd3A5Af93a6"
         let message = "DekuSan is cool"
         let method = SignMessageMethod(message: message.data(using: .utf8)!, fromAddress: address) { _ in }
-        let url = method.requestURL(scheme: "dekusan", queryItems: items)
-        XCTAssertEqual(url.absoluteString, "dekusan://sign-message?id=1122&blockchain=ethereum&callback=example&name=dapp&message=RGVrdVNhbiBpcyBjb29s&from=" + address)
+        let url = method.requestURL(scheme: "dexon-wallet", queryItems: items)
+        XCTAssertEqual(url.absoluteString, "dexon-wallet://sign-message?id=1122&blockchain=ethereum&callback=example&name=dapp&message=RGVrdVNhbiBpcyBjb29s&from=" + address)
     }
 
     func testInitWithURLComponents() {
         let address = "0xb25d07735d5B9B5601C549e901b04bd3A5Af93a6"
         let message = "DekuSan is cool"
         let components = URLComponents(
-            string: "dekusan://sign-message?id=1122&blockchain=dexon&callback=example&name=dapp" +
+            string: "dexon-wallet://sign-message?id=1122&blockchain=dexon&callback=example&name=dapp" +
                 "&message=RGVrdVNhbiBpcyBjb29s" +
                 "&from=" + address)!
         let method = SignMessageMethod(components: components)
@@ -55,7 +55,7 @@ class SignMessageMethodTests: XCTestCase {
         let signature = "0x6451a8b3bf95df73c16258d6fe2eb3d896bff4b8d40f8c250973226287506f28278cfe1b147504ec75ce0b1e9f896298ed4bf7bddc33f5a8bb115192e2c021ce1b"
         let data = Data(hex: signature.drop0x)
 
-        let components = URLComponents(string: "example://dekusan?id=1122&signature=" + data.base64EncodedString())!
+        let components = URLComponents(string: "example://dexon-wallet?id=1122&signature=" + data.base64EncodedString())!
         let method = SignMessageMethod(message: Data()) { (result) in
             XCTAssertEqual(result.value, signature.lowercased())
         }
@@ -64,7 +64,7 @@ class SignMessageMethodTests: XCTestCase {
     }
 
     func testHandleErrorCallback() {
-        let components = URLComponents(string: "example://dekusan?id=1122&error=1")!
+        let components = URLComponents(string: "example://dexon-wallet?id=1122&error=1")!
         let method = SignMessageMethod(message: Data()) { (result) in
             XCTAssertEqual(result.error, WalletSDKError.cancelled)
         }

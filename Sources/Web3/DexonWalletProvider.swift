@@ -6,15 +6,15 @@ import PromiseKit
 import CryptoSwift
 import BigInt
 #if !COCOAPODS
-import DekuSanSDK
+import DexonWalletSDK
 #endif
 
-/// DekuSan http provider.
-public class DekuSanProvider: Web3Provider {
+/// Dexon wallet http provider.
+public class DexonWalletProvider: Web3Provider {
     /// node url address
     public var url: URL
-    /// dekuSanSDK
-    public var dekuSanWallet: DekuSanSDK
+    /// dexon wallet
+    public var dexonWallet: DexonWalletSDK
     /// network id which used for local signing
     public var network: NetworkId?
     /// keystore manager which contains private keys
@@ -23,14 +23,14 @@ public class DekuSanProvider: Web3Provider {
     public var session = URLSession(configuration: .default)
     
     /// default init with any address and network id. works with infura, localnode and any other node
-    public init?(_ httpProviderURL: URL, dekuSanWallet: DekuSanSDK, network net: NetworkId? = nil, keystoreManager manager: KeystoreManager = KeystoreManager()) {
-        self.dekuSanWallet = dekuSanWallet
+    public init?(_ httpProviderURL: URL, dexonWallet: DexonWalletSDK, network net: NetworkId? = nil, keystoreManager manager: KeystoreManager = KeystoreManager()) {
+        self.dexonWallet = dexonWallet
         do {
             guard httpProviderURL.scheme == "http" || httpProviderURL.scheme == "https" else { return nil }
             url = httpProviderURL
             if net == nil {
                 let request = JsonRpcRequest(method: .getNetwork)
-                let response = try DekuSanProvider.post(request, providerURL: httpProviderURL, queue: DispatchQueue.global(qos: .userInteractive), session: session).wait()
+                let response = try DexonWalletProvider.post(request, providerURL: httpProviderURL, queue: DispatchQueue.global(qos: .userInteractive), session: session).wait()
                 if response.error != nil {
                     if response.message != nil {
                         print(response.message!)
@@ -89,7 +89,7 @@ public class DekuSanProvider: Web3Provider {
     }
     
     static func post(_ request: JsonRpcRequestBatch, providerURL: URL, queue: DispatchQueue = .main, session: URLSession) -> Promise<JsonRpcResponseBatch> {
-        fatalError("DekuSan provider doesn't support batch request")
+        fatalError("Dexon Wallet Provider doesn't support batch request")
     }
     
     public func sendAsync(_ request: JsonRpcRequest, queue: DispatchQueue = .main) -> Promise<JsonRpcResponse> {
@@ -101,12 +101,12 @@ public class DekuSanProvider: Web3Provider {
         case JsonRpcMethod.sendTransaction:
             return sendTransaction(request, queue: queue)
         default:
-            return DekuSanProvider.post(request, providerURL: url, queue: queue, session: session)
+            return DexonWalletProvider.post(request, providerURL: url, queue: queue, session: session)
         }
     }
     
     public func sendAsync(_ requests: JsonRpcRequestBatch, queue: DispatchQueue = .main) -> Promise<JsonRpcResponseBatch> {
-        return DekuSanProvider.post(requests, providerURL: url, queue: queue, session: session)
+        return DexonWalletProvider.post(requests, providerURL: url, queue: queue, session: session)
     }
     
     private func requestAccounts(_ request: JsonRpcRequest, queue: DispatchQueue) -> Promise<JsonRpcResponse> {
@@ -117,7 +117,7 @@ public class DekuSanProvider: Web3Provider {
                 return
             }
             
-            self.dekuSanWallet.requestAccounts { (result) in
+            self.dexonWallet.requestAccounts { (result) in
                 switch result {
                 case .success(let account):
                     rp.resolver.fulfill(account)
@@ -149,7 +149,7 @@ public class DekuSanProvider: Web3Provider {
             
             let data = Data(hex: hexMessage.drop0x)
             
-            self.dekuSanWallet.sign(personalMessageData: data, fromAddress: address, completion: { (result) in
+            self.dexonWallet.sign(personalMessageData: data, fromAddress: address, completion: { (result) in
                 switch result {
                 case .success(let signature):
                     rp.resolver.fulfill(signature)
@@ -210,7 +210,7 @@ public class DekuSanProvider: Web3Provider {
                 data = nil
             }
             
-            self.dekuSanWallet.sendTransaction(
+            self.dexonWallet.sendTransaction(
                 fromAddress: parameters.from,
                 toAddress: toAddress,
                 amount: amount,
@@ -236,8 +236,8 @@ public class DekuSanProvider: Web3Provider {
 
 public extension Web3 {
     
-    public convenience init?(dexonRpcURL: URL, dekuSanWallet: DekuSanSDK, network: NetworkId? = nil) {
-        guard let provider = DekuSanProvider(dexonRpcURL, dekuSanWallet: dekuSanWallet, network: network) else { return nil }
+    public convenience init?(dexonRpcURL: URL, dexonWallet: DexonWalletSDK, network: NetworkId? = nil) {
+        guard let provider = DexonWalletProvider(dexonRpcURL, dexonWallet: dexonWallet, network: network) else { return nil }
         let dispatcher = JsonRpcRequestDispatcher(provider: provider, queue: DispatchQueue.global(qos: .userInteractive), policy: .NoBatching)
         self.init(provider: provider, queue: nil, requestDispatcher: dispatcher)
     }

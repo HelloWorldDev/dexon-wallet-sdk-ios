@@ -1,13 +1,13 @@
 // Copyright DEXON Org. All rights reserved.
 
 import UIKit
-import DekuSanSDK
+import DexonWalletSDK
 import AloeStackView
 import web3swift
 
 class RequestAccountsViewController: UIViewController {
 
-    private let dekuSanWallet: DekuSanSDK
+    private let dexonWalletSDK: DexonWalletSDK
     private let callViaWeb3: Bool
     
     private var web3: Web3?
@@ -36,8 +36,8 @@ class RequestAccountsViewController: UIViewController {
         return label
     }()
 
-    init(dekuSanWallet: DekuSanSDK, callViaWeb3: Bool = false) {
-        self.dekuSanWallet = dekuSanWallet
+    init(dexonWalletSDK: DexonWalletSDK, callViaWeb3: Bool = false) {
+        self.dexonWalletSDK = dexonWalletSDK
         self.callViaWeb3 = callViaWeb3
         super.init(nibName: nil, bundle: nil)
     }
@@ -69,7 +69,7 @@ class RequestAccountsViewController: UIViewController {
     }
     
     private func callFromWeb3() {
-        web3 = Web3(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dekuSanWallet: dekuSanWallet, network: .dexonTestnet)!
+        web3 = Web3(dexonRpcURL: URL(string: "https://api-testnet.dexscan.org/v1/network/rpc")!, dexonWallet: dexonWalletSDK, network: .dexonTestnet)!
         web3?.eth.getAccountsPromise().done { result in
             self.resultLabel.text = "address: \(result.first ?? "")"
         }.catch { error in
@@ -88,6 +88,6 @@ class RequestAccountsViewController: UIViewController {
             }
         }
 
-        dekuSanWallet.run(method: method)
+        dexonWalletSDK.run(method: method)
     }
 }

@@ -145,7 +145,7 @@ public class SendTransactionMethod: Method {
     }
 }
 
-public extension DekuSanSDK {
+public extension DexonWalletSDK {
 
     public func sendTransaction(
         fromAddress: String? = nil,
