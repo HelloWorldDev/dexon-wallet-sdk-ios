@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DexonWalletSDK'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'DEXON Wallet SDK for iOS'
 
   s.homepage         = 'https://dexon.org/'
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.subspec 'Web3' do |ss|
     ss.source_files = 'Sources/Web3/**/*.{swift}'
 
-    ss.dependency 'DexonWalletSDK/Core', '~> 0.2.0'
+    ss.dependency 'DexonWalletSDK/Core', '~> 0.3.0'
     ss.dependency 'CryptoSwift', '~> 0.14.0'
     ss.dependency 'web3swift.pod', '~> 2.1.10'
   end

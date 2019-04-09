@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DexonWalletApp'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'DEXON Wallet SDK for App'
 
   s.homepage         = 'https://dexon.org/'
