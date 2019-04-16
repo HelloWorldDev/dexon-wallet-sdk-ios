@@ -50,7 +50,7 @@ import DexonWalletSDK
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Handle wallet results
     if let url = launchOptions?[.url] as? URL {
-        return dexonWallet.handleCallback(url: url) || dexonWallet.handleCallback(url: url)
+        return dexonWallet.handleCallback(url: url)
     }
     
     ...
@@ -60,7 +60,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
     // Handle wallet results
-    return dexonWallet.handleCallback(url: url) || dexonWallet.handleCallback(url: url)
+    return dexonWallet.handleCallback(url: url)
 }
 ```
 
