@@ -11,6 +11,8 @@ public final class DexonWalletSDK {
         return UIApplication.shared.canOpenURL(URL(string: "\(walletScheme)://")!)
     }
 
+    private static let appStoreAppId = "1459843240"
+
     /// The dapp name sent to Dexon Wallet app
     public let name: String
 
@@ -36,9 +38,13 @@ public final class DexonWalletSDK {
                      URLQueryItem(name: GeneralQueryItemName.callback.rawValue, value: callbackScheme),
                      URLQueryItem(name: GeneralQueryItemName.name.rawValue, value: name)]
 
-        let url = method.requestURL(scheme: type(of: self).walletScheme, queryItems: items)
+        var url = method.requestURL(scheme: type(of: self).walletScheme, queryItems: items)
         runningMethods[id] = method
         DispatchQueue.main.safeAsync {
+            if type(of: self).isAvailable == false {
+                url = URL(string: "itms-apps://itunes.apple.com/app/id" + type(of: self).appStoreAppId)!
+            }
+
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(url)
             } else {
